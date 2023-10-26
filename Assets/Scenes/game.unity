@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 31887273}
   - component: {fileID: 31887272}
   - component: {fileID: 31887271}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -0.1, y: 1.1028641, z: -1.6}
+  m_LocalPosition: {x: 0, y: 1.1028641, z: -1.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -768,7 +768,7 @@ Transform:
   m_GameObject: {fileID: 1699751536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.053, y: -0, z: -0.459}
+  m_LocalPosition: {x: 0.053, y: -0.019, z: -0.459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   runSpeed: 2
   jumpForce: 3
   dodgeSpeed: 3
-  whatIsGround:
+  groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundPoint: {fileID: 1699751537}
