@@ -1,4 +1,6 @@
+using System;
 using System.ComponentModel.Design;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class playerMovement : MonoBehaviour
@@ -11,7 +13,7 @@ public class playerMovement : MonoBehaviour
     // Variables needed for jumping
     public LayerMask whatIsGround;
     public Transform groundPoint;
-    private bool isGrounded;
+    private bool canJump;
 
     // Gets user input
     private Vector2 moveInput;
@@ -25,21 +27,37 @@ public class playerMovement : MonoBehaviour
 
         moveInput.Normalize(); // Makes movement more smooth
 
-        // If player is pressing down LEFT SHIFT
+        // Player presses down LEFT SHIFT
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            // Lets the player run
+            // Run
             playerRb.velocity = new Vector3(moveInput.x * runSpeed, playerRb.velocity.y, moveInput.y * runSpeed);
         } else
         {
-            // Lets the player walk
+            // Walk
             playerRb.velocity = new Vector3(moveInput.x * walkSpeed, playerRb.velocity.y, moveInput.y * walkSpeed);
         }
 
-        // Check if the player is touching the ground
-
         // Check if the user is pressing SPACE to perform jump
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            canJump = true;
+        
+        }
 
-        // Lets the player jump
+
+        }
+
+    void FixedUpdate()
+    {
+            if(canJump)
+            {
+                canJump = false;
+                // Lets the player jump
+                playerRb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+                //playerRb.velocity += new Vector3(0f, jumpForce, 0f);
+            }
+
+        // Lets the player dodge quickly in the direction they're moving
     }
 }
