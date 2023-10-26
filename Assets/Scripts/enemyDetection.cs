@@ -104,10 +104,4 @@ public class enemyDetection : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    // Check if the player is within a certain distance of the enemy
-
-    // Move towards the player
-
-    // Stop when it's at a certain distance to the player
-
 }
