@@ -70,3 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Scenes/game/ReflectionProbe-0.exr
+Assets/Scenes/game/LightingData.asset.meta
+Assets/Scenes/game/LightingData.asset
+Assets/Scenes/game.unity
+Assets/Scenes/game.meta
+Assets/liten scene.fbx.meta
+Assets/liten scene.fbx
