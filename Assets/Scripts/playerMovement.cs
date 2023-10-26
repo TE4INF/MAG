@@ -11,7 +11,7 @@ public class playerMovement : MonoBehaviour
     public float walkSpeed, runSpeed, jumpForce, dodgeSpeed;
 
     // Variables needed for jumping
-    public LayerMask whatIsGround;
+    public LayerMask groundLayer;
     public Transform groundPoint;
     private bool canJump;
 
@@ -38,26 +38,18 @@ public class playerMovement : MonoBehaviour
             playerRb.velocity = new Vector3(moveInput.x * walkSpeed, playerRb.velocity.y, moveInput.y * walkSpeed);
         }
 
-        // Check if the user is pressing SPACE to perform jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        RaycastHit hit;
+        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, groundLayer))
         {
             canJump = true;
-        
         }
 
-
+        // Check if the user is pressing SPACE to perform jump
+        if (Input.GetKeyUp(KeyCode.Space) && canJump)
+        {
+            canJump = false;
+            // Lets the player jump
+            playerRb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
         }
-
-    void FixedUpdate()
-    {
-            if(canJump)
-            {
-                canJump = false;
-                // Lets the player jump
-                playerRb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
-                //playerRb.velocity += new Vector3(0f, jumpForce, 0f);
-            }
-
-        // Lets the player dodge quickly in the direction they're moving
     }
 }
