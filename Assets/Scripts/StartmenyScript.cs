@@ -37,16 +37,4 @@ public class StartmenyScript : MonoBehaviour
         Audio1.SetActive(true); 
       }
     }
-
-    public void trigger2()
-    {
-        if(X2.activeInHierarchy == false)
-        {
-            X2.SetActive(true);
-        }
-        else{
-            X2.SetActive(false);
-        }
-
-    }
 }
