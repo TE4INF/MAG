@@ -8,8 +8,10 @@ public class playerMovement : MonoBehaviour
 {
     [Header("Player references")]
     public Rigidbody playerRb;
-    public float walkSpeed, runSpeed, jumpForce, dodgeSpeed;
     public SpriteRenderer playerSprite;
+
+    [Header("Forces")]
+    public float walkSpeed, runSpeed, jumpForce;
 
     [Header ("Conditions")]
     private bool canJump;
