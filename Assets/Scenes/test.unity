@@ -643,9 +643,10 @@ MonoBehaviour:
   runSpeed: 1.8
   jumpForce: 3
   dodgeSpeed: 3
+  playerSprite: {fileID: 1095701535}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   groundPoint: {fileID: 375105889}
 --- !u!136 &1077993159
 CapsuleCollider:
