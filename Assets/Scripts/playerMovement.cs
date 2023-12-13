@@ -6,18 +6,22 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
+    [Header("Player references")]
     public Rigidbody playerRb;
     public float walkSpeed, runSpeed, jumpForce, dodgeSpeed;
-    private bool raycast;
     public SpriteRenderer playerSprite;
 
+    [Header ("Conditions")]
+    private bool canJump;
+    private bool raycast;
+    bool isFacingRight = true;
+
+    [Header("World")]
     public LayerMask groundLayer;
     public Transform groundPoint;
-    private bool canJump;
 
+    [Header("Input")]
     private Vector2 moveInput;
-
-    bool isFacingRight = true;
      
     void Update()
     {
