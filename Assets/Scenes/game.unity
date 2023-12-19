@@ -2384,7 +2384,7 @@ GameObject:
   - component: {fileID: 1597468946}
   - component: {fileID: 1597468947}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: playerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2725,7 +2725,7 @@ GameObject:
   - component: {fileID: 1700429024}
   - component: {fileID: 1700429023}
   m_Layer: 0
-  m_Name: Shadow
+  m_Name: playerShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3022,14 +3022,15 @@ MonoBehaviour:
   playerSprite: {fileID: 1597468947}
   walkSpeed: 1
   runSpeed: 2.5
-  jumpForce: 2
+  jumpForce: 3
+  dashForce: 25
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundPoint: {fileID: 1699751537}
-  dashForce: 0
-  dashDuration: 0
-  dashCooldown: 0
+  dashKey: 101
+  dashDuration: 1
+  dashCooldown: 1
 --- !u!54 &1763718178
 Rigidbody:
   m_ObjectHideFlags: 0
