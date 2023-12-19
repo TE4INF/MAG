@@ -743,10 +743,14 @@ MonoBehaviour:
   walkSpeed: 1.2
   runSpeed: 1.8
   jumpForce: 3
+  dashForce: 25
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundPoint: {fileID: 375105889}
+  dashKey: 101
+  dashDuration: 1
+  dashCooldown: 1
 --- !u!136 &1077993159
 CapsuleCollider:
   m_ObjectHideFlags: 0
