@@ -3,66 +3,97 @@ using System.Collections;
 using System.ComponentModel.Design;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class playerMovement : MonoBehaviour
 {
     [Header("Player references")]
-    public Rigidbody playerRb;
-    public SpriteRenderer playerSprite;
+    [SerializeField] Rigidbody playerRb;
+    [SerializeField] SpriteRenderer playerSprite;
+    Vector3 moveDirection;
+    Rigidbody rb;
 
     [Header("Forces")]
-    public float walkSpeed, runSpeed, jumpForce;
+    [SerializeField] float walkSpeed;
+    [SerializeField] float runSpeed;
+    [SerializeField] float jumpForce;
+    [SerializeField] float dashForce;
 
     [Header ("Conditions")]
     private bool canJump;
-    private bool raycast;
+    private bool canDash = true;
+    bool isDashing = false;
     bool isFacingRight = true;
+    private bool raycast;
 
     [Header("World")]
-    public LayerMask groundLayer;
-    public Transform groundPoint;
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] Transform groundPoint;
 
     [Header("Input")]
+    [SerializeField] KeyCode dashKey = KeyCode.E;
     private Vector2 moveInput;
-     
+    
+
+    [Header("Dash Settings")]
+    [SerializeField] float dashDuration;
+    [SerializeField] float dashCooldown;
+    private float dashCooldownTimer;
+
     void Update()
     {
+
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
 
-        moveInput.Normalize(); // Makes movement more smooth
 
-        // Moves left or right either walk or sprinting
-        if (Input.GetKey(KeyCode.LeftShift))
+        moveDirection = new Vector2(moveInput.x, moveInput.y).normalized;
+
+        if(Input.GetKeyDown(dashKey))
         {
-            playerRb.velocity = new Vector3(moveInput.x * runSpeed, playerRb.velocity.y, moveInput.y * runSpeed);
-        } else
-        {
-            playerRb.velocity = new Vector3(moveInput.x * walkSpeed, playerRb.velocity.y, moveInput.y * walkSpeed);
+            Dash();
         }
 
-        if(moveInput.x < 0 && isFacingRight)
-        {
-            flip();
-        }
-        else if(moveInput.x > 0 && !isFacingRight) {
-            flip();
+        if(dashCooldownTimer > 0) 
+        { 
+            dashCooldownTimer -= Time.deltaTime;
         }
 
-
+        // Jump
         RaycastHit hit;
         if (raycast = Physics.Raycast(groundPoint.position, Vector3.down, out hit, .01f, groundLayer))
         {
             canJump = true;
-            Debug.Log(canJump);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
             canJump = false;
-            Debug.Log(canJump);
             playerRb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+        }
 
+        // Flips the sprite according to movement
+        if (moveInput.x < 0 && isFacingRight)
+        {
+            flip();
+        }
+        else if (moveInput.x > 0 && !isFacingRight)
+        {
+            flip();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+
+        // Moves left or right either walk or sprinting
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerRb.velocity = new Vector3(moveDirection.x * runSpeed, playerRb.velocity.y, moveDirection.y * runSpeed);
+        }
+        else
+        {
+            playerRb.velocity = new Vector3(moveDirection.x * walkSpeed, playerRb.velocity.y, moveDirection.y * walkSpeed);
         }
     }
 
@@ -79,9 +110,24 @@ public class playerMovement : MonoBehaviour
             isFacingRight = true;
             playerSprite.flipX = false;
         }
-        
+    }
 
+    private void Dash()
+    {
+        if (dashCooldownTimer > 0) return;
+        else dashCooldownTimer = dashCooldown;
 
+        isDashing = true;
+        canDash = false;
+
+        playerRb.AddForce(moveDirection.x * dashForce, 0, moveDirection.y * dashForce, ForceMode.Impulse);
+        Invoke(nameof(resetDash), dashDuration);
+    }
+
+    private void resetDash()
+    {
+        canDash = true;
+        isDashing = false;
     }
 
 }
