@@ -22,15 +22,15 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -28565873, guid: 3b674e8f1dc0ab9489a2984aa4fab06a, type: 3}
-    - time: 0.06666667
+    - time: 0.016666668
       value: {fileID: 18331493, guid: 3b674e8f1dc0ab9489a2984aa4fab06a, type: 3}
-    - time: 0.13333334
+    - time: 0.083333336
       value: {fileID: 157397840, guid: 3b674e8f1dc0ab9489a2984aa4fab06a, type: 3}
-    - time: 0.2
+    - time: 0.16666667
       value: {fileID: 2088698307, guid: 3b674e8f1dc0ab9489a2984aa4fab06a, type: 3}
-    - time: 0.26666668
+    - time: 0.23333333
       value: {fileID: -571854393, guid: 3b674e8f1dc0ab9489a2984aa4fab06a, type: 3}
-    - time: 0.33333334
+    - time: 0.31666666
       value: {fileID: 976351003, guid: 3b674e8f1dc0ab9489a2984aa4fab06a, type: 3}
     - time: 0.4
       value: {fileID: -1317031854, guid: 3b674e8f1dc0ab9489a2984aa4fab06a, type: 3}
