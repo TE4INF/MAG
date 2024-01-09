@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour
     bool isDashing = false;
     bool isFacingRight = true;
     private bool raycast;
+    Animator animator;
 
     [Header("World")]
     [SerializeField] LayerMask groundLayer;
@@ -40,14 +41,30 @@ public class playerMovement : MonoBehaviour
     [SerializeField] float dashCooldown;
     private float dashCooldownTimer;
 
+    private void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     void Update()
     {
-
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
 
-
         moveDirection = new Vector2(moveInput.x, moveInput.y).normalized;
+
+        if (moveDirection == Vector3.zero)
+        {
+            animator.SetFloat("Speed", 0);
+        }
+        else if (!Input.GetKey(KeyCode.LeftShift))
+        {
+            animator.SetFloat("Speed", 1);
+        }
+        else 
+        {
+            animator.SetFloat("Speed", 2);
+        }
 
         if(Input.GetKeyDown(dashKey))
         {
@@ -92,7 +109,7 @@ public class playerMovement : MonoBehaviour
             playerRb.velocity = new Vector3(moveDirection.x * runSpeed, playerRb.velocity.y, moveDirection.y * runSpeed);
         }
         else
-        {
+        {   
             playerRb.velocity = new Vector3(moveDirection.x * walkSpeed, playerRb.velocity.y, moveDirection.y * walkSpeed);
         }
     }
