@@ -142,20 +142,11 @@ public class playerMovement : MonoBehaviour
         if (dashCooldownTimer > 0) return;
         else dashCooldownTimer = dashCooldown;
 
-<<<<<<< Updated upstream
         FILLBAR.fillAmount = 1;
         isDashing = true;
         canDash = false;
         CD.SetActive(true);
 
-=======
-        if (moveDirection == Vector3.zero) return;
-        else animator.SetTrigger("dashTrigger");
-
-        isDashing = true;
-        canDash = false;
-        
->>>>>>> Stashed changes
         playerRb.AddForce(moveDirection.x * dashForce, 0, moveDirection.y * dashForce, ForceMode.Impulse);
         Invoke(nameof(resetDash), dashDuration);
     }
