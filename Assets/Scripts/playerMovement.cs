@@ -4,6 +4,7 @@ using System.ComponentModel.Design;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class playerMovement : MonoBehaviour
     [SerializeField] float dashDuration;
     [SerializeField] float dashCooldown;
     private float dashCooldownTimer;
+    public GameObject CD;
+    public Image FILLBAR;
 
     private void Start()
     {
@@ -98,6 +101,11 @@ public class playerMovement : MonoBehaviour
         {
             flip();
         }
+
+        if(CD == true)
+        {
+            FILLBAR.fillAmount -= 1f * Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -134,8 +142,10 @@ public class playerMovement : MonoBehaviour
         if (dashCooldownTimer > 0) return;
         else dashCooldownTimer = dashCooldown;
 
+        FILLBAR.fillAmount = 1;
         isDashing = true;
         canDash = false;
+        CD.SetActive(true);
 
         playerRb.AddForce(moveDirection.x * dashForce, 0, moveDirection.y * dashForce, ForceMode.Impulse);
         Invoke(nameof(resetDash), dashDuration);
@@ -143,6 +153,7 @@ public class playerMovement : MonoBehaviour
 
     private void resetDash()
     {
+        CD.SetActive(false);
         canDash = true;
         isDashing = false;
     }

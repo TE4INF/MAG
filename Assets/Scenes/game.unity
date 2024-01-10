@@ -386,7 +386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &418860462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3666,6 +3666,8 @@ MonoBehaviour:
   dashKey: 101
   dashDuration: 1
   dashCooldown: 1
+  CD: {fileID: 418860461}
+  FILLBAR: {fileID: 1864583731}
 --- !u!54 &1763718178
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3945,7 +3947,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
