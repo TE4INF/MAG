@@ -145,7 +145,14 @@ public class playerMovement : MonoBehaviour
         FILLBAR.fillAmount = 1;
         isDashing = true;
         canDash = false;
-        CD.SetActive(true);
+
+
+        if (moveDirection == Vector3.zero) return;
+        else
+        {
+            CD.SetActive(true);
+            animator.SetTrigger("dashTrigger");
+        }
 
         playerRb.AddForce(moveDirection.x * dashForce, 0, moveDirection.y * dashForce, ForceMode.Impulse);
         Invoke(nameof(resetDash), dashDuration);
