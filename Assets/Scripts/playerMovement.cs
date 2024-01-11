@@ -44,6 +44,7 @@ public class playerMovement : MonoBehaviour
     public GameObject CD;
     public Image FILLBAR;
 
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -129,7 +130,7 @@ public class playerMovement : MonoBehaviour
             isFacingRight = !isFacingRight;
             playerSprite.flipX = true;
         }
-           
+
         else
         {
             isFacingRight = true;
@@ -151,7 +152,7 @@ public class playerMovement : MonoBehaviour
         else
         {
             CD.SetActive(true);
-            animator.SetTrigger("dashTrigger");
+            animator.SetTrigger("dash");
         }
 
         playerRb.AddForce(moveDirection.x * dashForce, 0, moveDirection.y * dashForce, ForceMode.Impulse);
