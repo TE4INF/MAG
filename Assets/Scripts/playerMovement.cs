@@ -146,12 +146,11 @@ public class playerMovement : MonoBehaviour
         isDashing = true;
         canDash = false;
 
-
         if (moveDirection == Vector3.zero) return;
         else
         {
             CD.SetActive(true);
-            animator.SetTrigger("dashTrigger");
+            animator.SetTrigger("dash");
         }
 
         playerRb.AddForce(moveDirection.x * dashForce, 0, moveDirection.y * dashForce, ForceMode.Impulse);
@@ -164,5 +163,4 @@ public class playerMovement : MonoBehaviour
         canDash = true;
         isDashing = false;
     }
-
 }
