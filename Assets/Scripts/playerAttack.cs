@@ -12,6 +12,7 @@ public class playerAttack : MonoBehaviour
     private bool attackBlocked;
     Animator animator;
     static public bool isAttacking;
+    [SerializeField] LayerMask EnemyLayer; 
     
     private void Start()
     {
@@ -51,9 +52,10 @@ public class playerAttack : MonoBehaviour
 
     public void DetectEnemy()
     {
-        foreach (Collider2D collider in Physics2D.OverlapCircleAll(attackOrigin.position, radius)) 
+        RaycastHit hit;
+        if (Physics.Raycast(attackOrigin.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, EnemyLayer))
         {
-            Debug.Log(collider.name);
+            Debug.Log("Enemy Hit");
         }
     }
 }
