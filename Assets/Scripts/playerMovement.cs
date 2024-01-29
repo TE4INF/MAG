@@ -22,9 +22,9 @@ public class playerMovement : MonoBehaviour
 
     [Header ("Conditions")]
     private bool canJump;
-    private bool canDash = true;
-    bool isDashing = false;
-    bool isFacingRight = true;
+    // private bool canDash = true;
+    // bool isDashing = false;
+    public bool isFacingRight = true;
     private bool raycast;
     Animator animator;
 
@@ -143,8 +143,8 @@ public class playerMovement : MonoBehaviour
         else dashCooldownTimer = dashCooldown;
 
         FILLBAR.fillAmount = 1;
-        isDashing = true;
-        canDash = false;
+        // isDashing = true;
+        // canDash = false;
 
         if (moveDirection == Vector3.zero) return;
         else
@@ -160,7 +160,7 @@ public class playerMovement : MonoBehaviour
     private void resetDash()
     {
         CD.SetActive(false);
-        canDash = true;
-        isDashing = false;
+        // canDash = true;
+        // isDashing = false;
     }
 }
