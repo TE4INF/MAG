@@ -9,11 +9,13 @@ public class playerAttack : MonoBehaviour
     public Transform attackOrigin;
     [SerializeField] float radius;
     public float attackDelay = 0.3f;
-    private bool attackBlocked;
+    private bool attackBlocked = false;
     Animator animator;
     static public bool isAttacking;
-    [SerializeField] LayerMask EnemyLayer; 
-    
+    [SerializeField] LayerMask EnemyLayer;
+
+    public playerMovement playerMovement;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -22,22 +24,32 @@ public class playerAttack : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Left-click was pressed");
             attack();
         }
     }
 
     private void attack()
     {
-        if (attackBlocked) return;
-        animator.SetTrigger("attack");
-        attackBlocked = true;
-        isAttacking = true;
-        StartCoroutine(DelayAttack());
+        if (attackBlocked)
+        {
+            return;
+        }
+        else
+        {
+            animator.SetTrigger("attack");
+
+            DetectEnemy();
+
+            attackBlocked = true;
+            isAttacking = true;
+            StartCoroutine(DelayAttack());
+        }
+        
     }
 
     private IEnumerator DelayAttack()
     {
+
         yield return new WaitForSeconds(attackDelay);
         attackBlocked = false;
         isAttacking = false;
@@ -52,10 +64,26 @@ public class playerAttack : MonoBehaviour
 
     public void DetectEnemy()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(attackOrigin.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, EnemyLayer))
+        // Checks which direction the player is facing
+        Vector3 raycastDirection = transform.right;
+        if(!playerMovement.isFacingRight)
         {
+            raycastDirection = -transform.right;
+        }
+
+        // Casts a raycast checking for enemy
+        RaycastHit hit;
+        if(Physics.Raycast(attackOrigin.position, raycastDirection, out hit, 0.2f, EnemyLayer))
+        {
+            // Debug if enemy is hit
             Debug.Log("Enemy Hit");
+
+            // Debug the hit point
+            // Debug.DrawLine(attackOrigin.position, hit.point, Color.red, 2.0f);
+        }
+        else
+        {
+            Debug.Log("Nothing Hit");
         }
     }
 }
