@@ -3827,7 +3827,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 2.4
   timeBetweenAttacks: 0.5
-  EnemyDamage: 0
+  EnemyDamage: 0.1
   sightRange: 3.7
   attackRange: 0.3
   playerInSightRange: 0

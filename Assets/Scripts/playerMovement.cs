@@ -177,6 +177,7 @@ public class playerMovement : MonoBehaviour
 
     public void takeDamage(float Damage)
     {
+        Debug.Log("OUCH");
         PlayerHealth -= Damage;
         Health.fillAmount -= Damage;
     }
