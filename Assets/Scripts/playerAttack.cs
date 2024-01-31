@@ -73,13 +73,13 @@ public class playerAttack : MonoBehaviour
 
         // Casts a raycast checking for enemy
         RaycastHit hit;
-        if(Physics.Raycast(attackOrigin.position, raycastDirection, out hit, 0.2f, EnemyLayer))
+        if(Physics.Raycast(attackOrigin.position, raycastDirection, out hit, 0.5f, EnemyLayer))
         {
             // Debug if enemy is hit
-            Debug.Log("Enemy Hit");
+            Debug.Log(hit.collider.name);
 
             // Debug the hit point
-            // Debug.DrawLine(attackOrigin.position, hit.point, Color.red, 2.0f);
+            Debug.DrawLine(attackOrigin.position, hit.point, Color.red, 2.0f);
         }
         else
         {
