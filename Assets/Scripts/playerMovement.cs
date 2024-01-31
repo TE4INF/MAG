@@ -8,11 +8,14 @@ using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour
 {
+    public static playerMovement main;
+
     [Header("Player references")]
     [SerializeField] Rigidbody playerRb;
     [SerializeField] SpriteRenderer playerSprite;
     Vector3 moveDirection;
     Rigidbody rb;
+    public Image Health;
 
     [Header("Forces")]
     [SerializeField] float walkSpeed;
@@ -43,6 +46,13 @@ public class playerMovement : MonoBehaviour
     private float dashCooldownTimer;
     public GameObject CD;
     public Image FILLBAR;
+
+    [Header("Player attributes")]
+    [SerializeField]private float PlayerHealth = 1;
+
+    private void Awake() {
+        main = this;
+    }
 
     private void Start()
     {
@@ -129,7 +139,7 @@ public class playerMovement : MonoBehaviour
             isFacingRight = !isFacingRight;
             playerSprite.flipX = true;
         }
-           
+
         else
         {
             isFacingRight = true;
@@ -163,4 +173,5 @@ public class playerMovement : MonoBehaviour
         // canDash = true;
         // isDashing = false;
     }
+
 }

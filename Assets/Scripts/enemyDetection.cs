@@ -20,7 +20,7 @@ public class enemyDetection : MonoBehaviour
 //attack
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-
+    [SerializeField] private float EnemyDamage;
 //states
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -92,7 +92,7 @@ public class enemyDetection : MonoBehaviour
             //
             Debug.Log("Attack!");
 
-
+            playerMovement.main.takeDamage(EnemyDamage);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
