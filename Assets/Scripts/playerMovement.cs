@@ -49,6 +49,8 @@ public class playerMovement : MonoBehaviour
 
     [Header("Player attributes")]
     [SerializeField]private float PlayerHealth = 1;
+    public GameObject DS;
+    public GameObject UIHUB;
 
     private void Awake() {
         main = this;
@@ -116,6 +118,12 @@ public class playerMovement : MonoBehaviour
         {
             FILLBAR.fillAmount -= 1f * Time.deltaTime;
         }
+        if(PlayerHealth < 0)
+        {
+            DS.SetActive(true);
+            UIHUB.SetActive(false);
+            Time.timeScale = 0;
+        }
     }
 
     private void FixedUpdate()
@@ -176,8 +184,11 @@ public class playerMovement : MonoBehaviour
 
     public void takeDamage(float Damage)
     {
+        if(PlayerHealth >= 0)
+        {
         Debug.Log("OUCH");
         PlayerHealth -= Damage;
         Health.fillAmount -= Damage;
+        }
     }
 }
