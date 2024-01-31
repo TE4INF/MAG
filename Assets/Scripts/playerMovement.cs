@@ -174,4 +174,10 @@ public class playerMovement : MonoBehaviour
         // isDashing = false;
     }
 
+    public void takeDamage(float Damage)
+    {
+        Debug.Log("OUCH");
+        PlayerHealth -= Damage;
+        Health.fillAmount -= Damage;
+    }
 }
