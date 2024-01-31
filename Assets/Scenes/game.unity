@@ -1332,7 +1332,7 @@ GameObject:
   - component: {fileID: 892528415}
   - component: {fileID: 892528414}
   - component: {fileID: 892528413}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1802,10 +1802,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.12384033
+  m_Radius: 0.081588745
   m_Height: 6.464223
   m_Direction: 1
-  m_Center: {x: -2.7321115, y: 0, z: -2.5143342}
+  m_Center: {x: -2.7321115, y: 0, z: -2.3994207}
 --- !u!136 &892528429
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4050,7 +4050,7 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 2.4
-  timeBetweenAttacks: 0.5
+  timeBetweenAttacks: 2
   EnemyDamage: 0.1
   sightRange: 3.7
   attackRange: 0.3
