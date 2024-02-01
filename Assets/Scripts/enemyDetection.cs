@@ -8,20 +8,20 @@ using Random = UnityEngine.Random;
 public class enemyDetection : MonoBehaviour
 {
     public NavMeshAgent agent;
-    
+
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-//patroll
+    //patroll
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
-//attack
+    //attack
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    [SerializeField] private float EnemyDamage;
-//states
+    [SerializeField] public float EnemyDamage;
+    //states
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
@@ -33,7 +33,7 @@ public class enemyDetection : MonoBehaviour
 
     }
 
-    private void Update() 
+    private void Update()
     {
         //Check sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
@@ -72,35 +72,40 @@ public class enemyDetection : MonoBehaviour
             walkPointSet = true;
     }
 
-    
+
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
     }
 
-    
-    private void AttackPlayer()
+
+    public void AttackPlayer()
     {
         //Make sure enemy doesnt move
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
 
-        if (!alreadyAttacked)
+        if (alreadyAttacked == false)
         {
             //Attack code here
             //
+            Debug.Log(alreadyAttacked);
             Debug.Log("Attack!");
 
-            playerMovement.main.takeDamage(EnemyDamage);
+
 
             alreadyAttacked = true;
+
+            Debug.Log(alreadyAttacked);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            playerMovement.main.TakeDamage(EnemyDamage);
         }
     }
 
-    private void ResetAttack()
+    public void ResetAttack()
     {
+        Debug.Log("ResetAttack in " + timeBetweenAttacks);
         alreadyAttacked = false;
     }
 

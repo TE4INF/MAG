@@ -23,7 +23,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float dashForce;
 
-    [Header ("Conditions")]
+    [Header("Conditions")]
     private bool canJump;
     // private bool canDash = true;
     // bool isDashing = false;
@@ -38,7 +38,7 @@ public class playerMovement : MonoBehaviour
     [Header("Input")]
     [SerializeField] KeyCode dashKey = KeyCode.E;
     private Vector2 moveInput;
-    
+
 
     [Header("Dash Settings")]
     [SerializeField] float dashDuration;
@@ -48,11 +48,12 @@ public class playerMovement : MonoBehaviour
     public Image FILLBAR;
 
     [Header("Player attributes")]
-    [SerializeField]private float PlayerHealth = 1;
+    [SerializeField] private float PlayerHealth = 1f;
     public GameObject DS;
     public GameObject UIHUB;
 
-    private void Awake() {
+    private void Awake()
+    {
         main = this;
     }
 
@@ -76,18 +77,18 @@ public class playerMovement : MonoBehaviour
         {
             animator.SetFloat("Speed", 1);
         }
-        else 
+        else
         {
             animator.SetFloat("Speed", 2);
         }
 
-        if(Input.GetKeyDown(dashKey))
+        if (Input.GetKeyDown(dashKey))
         {
             Dash();
         }
 
-        if(dashCooldownTimer > 0) 
-        { 
+        if (dashCooldownTimer > 0)
+        {
             dashCooldownTimer -= Time.deltaTime;
         }
 
@@ -114,11 +115,11 @@ public class playerMovement : MonoBehaviour
             flip();
         }
 
-        if(CD == true)
+        if (CD == true)
         {
             FILLBAR.fillAmount -= 1f * Time.deltaTime;
         }
-        if(PlayerHealth < 0)
+        if (PlayerHealth < 0)
         {
             DS.SetActive(true);
             UIHUB.SetActive(false);
@@ -135,7 +136,7 @@ public class playerMovement : MonoBehaviour
             playerRb.velocity = new Vector3(moveDirection.x * runSpeed, playerRb.velocity.y, moveDirection.y * runSpeed);
         }
         else
-        {   
+        {
             playerRb.velocity = new Vector3(moveDirection.x * walkSpeed, playerRb.velocity.y, moveDirection.y * walkSpeed);
         }
     }
@@ -182,13 +183,13 @@ public class playerMovement : MonoBehaviour
         // isDashing = false;
     }
 
-    public void takeDamage(float Damage)
+    public void TakeDamage(float Damage)
     {
-        if(PlayerHealth >= 0)
+        if (PlayerHealth >= 0 && Damage >= 0)
         {
-        Debug.Log("OUCH");
-        PlayerHealth -= Damage;
-        Health.fillAmount -= Damage;
+            Debug.Log("OUCH " + Damage + " remaining hp " + PlayerHealth);
+            PlayerHealth -= Damage;
+            Health.fillAmount -= Damage;
         }
     }
 }

@@ -806,10 +806,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRb: {fileID: 1077993160}
   playerSprite: {fileID: 1095701535}
+  Health: {fileID: 0}
   walkSpeed: 1.1
   runSpeed: 1.5
   jumpForce: 3
   dashForce: 9
+  isFacingRight: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -817,6 +819,11 @@ MonoBehaviour:
   dashKey: 101
   dashDuration: 1
   dashCooldown: 1
+  CD: {fileID: 0}
+  FILLBAR: {fileID: 0}
+  PlayerHealth: 1
+  DS: {fileID: 0}
+  UIHUB: {fileID: 0}
 --- !u!54 &1077993160
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -929,6 +936,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 2.4
   timeBetweenAttacks: 0.5
+  EnemyDamage: 0
   sightRange: 3.7
   attackRange: 0.3
   playerInSightRange: 0
