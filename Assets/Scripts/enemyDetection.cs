@@ -8,20 +8,20 @@ using Random = UnityEngine.Random;
 public class enemyDetection : MonoBehaviour
 {
     public NavMeshAgent agent;
-    
+
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-//patroll
+    //patroll
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
-//attack
+    //attack
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     [SerializeField] private float EnemyDamage;
-//states
+    //states
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
@@ -33,7 +33,7 @@ public class enemyDetection : MonoBehaviour
 
     }
 
-    private void Update() 
+    private void Update()
     {
         //Check sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
@@ -72,14 +72,14 @@ public class enemyDetection : MonoBehaviour
             walkPointSet = true;
     }
 
-    
+
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
     }
 
-    
-    private void AttackPlayer()
+
+    public void AttackPlayer()
     {
         //Make sure enemy doesnt move
         agent.SetDestination(transform.position);
@@ -91,11 +91,9 @@ public class enemyDetection : MonoBehaviour
             //Attack code here
             //
             Debug.Log("Attack!");
-
-            playerMovement.main.takeDamage(EnemyDamage);
-
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            playerMovement.main.takeDamage(EnemyDamage);
         }
     }
 
