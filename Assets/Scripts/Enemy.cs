@@ -28,6 +28,5 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         Debug.Log("ded");
-        Destroy(gameObject);
     }
 }
