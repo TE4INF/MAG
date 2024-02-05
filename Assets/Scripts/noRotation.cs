@@ -5,8 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class noRotation : MonoBehaviour
 {
-    void LateUpdate ()
+    void LateUpdate()
     {
-        transform.rotation = Quaternion.identity;  
+        transform.rotation = Quaternion.identity;
     }
 }
