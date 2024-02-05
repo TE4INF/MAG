@@ -79,7 +79,7 @@ public class enemyDetection : MonoBehaviour
     }
 
 
-    public void AttackPlayer()
+    private void AttackPlayer()
     {
         //Make sure enemy doesnt move
         agent.SetDestination(transform.position);
