@@ -40,12 +40,16 @@ public class attack2 : MonoBehaviour
         IsAttacking = true;
         animator.SetTrigger("attack");
 
-        Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, AttackRange, enemyLayers);
+        Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, AttackRange);
 
         foreach (Collider enemy in hitEnemies)
         {
             Debug.Log("Detected" + enemy.name);
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            if (enemy.tag == "Enemy")
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            }
+
         }
 
         StartCoroutine(ResetAttackCooldown());
