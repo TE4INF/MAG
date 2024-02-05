@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour
 {
+    public Transform attackPoint;
     public static playerMovement main;
 
     [Header("Player references")]
@@ -23,7 +24,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float dashForce;
 
-    [Header ("Conditions")]
+    [Header("Conditions")]
     private bool canJump;
     // private bool canDash = true;
     // bool isDashing = false;
@@ -38,7 +39,7 @@ public class playerMovement : MonoBehaviour
     [Header("Input")]
     [SerializeField] KeyCode dashKey = KeyCode.E;
     private Vector2 moveInput;
-    
+
 
     [Header("Dash Settings")]
     [SerializeField] float dashDuration;
@@ -48,16 +49,20 @@ public class playerMovement : MonoBehaviour
     public Image FILLBAR;
 
     [Header("Player attributes")]
-    [SerializeField]private float PlayerHealth = 1;
+    [SerializeField] private float PlayerHealth = 1;
     public GameObject DS;
     public GameObject UIHUB;
 
-    private void Awake() {
+    private Vector3 flipAttack;
+
+    private void Awake()
+    {
         main = this;
     }
 
     private void Start()
     {
+        flipAttack = attackPoint.localPosition;
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -76,18 +81,18 @@ public class playerMovement : MonoBehaviour
         {
             animator.SetFloat("Speed", 1);
         }
-        else 
+        else
         {
             animator.SetFloat("Speed", 2);
         }
 
-        if(Input.GetKeyDown(dashKey))
+        if (Input.GetKeyDown(dashKey))
         {
             Dash();
         }
 
-        if(dashCooldownTimer > 0) 
-        { 
+        if (dashCooldownTimer > 0)
+        {
             dashCooldownTimer -= Time.deltaTime;
         }
 
@@ -114,11 +119,11 @@ public class playerMovement : MonoBehaviour
             flip();
         }
 
-        if(CD == true)
+        if (CD == true)
         {
             FILLBAR.fillAmount -= 1f * Time.deltaTime;
         }
-        if(PlayerHealth < 0)
+        if (PlayerHealth <= 0)
         {
             DS.SetActive(true);
             UIHUB.SetActive(false);
@@ -135,7 +140,7 @@ public class playerMovement : MonoBehaviour
             playerRb.velocity = new Vector3(moveDirection.x * runSpeed, playerRb.velocity.y, moveDirection.y * runSpeed);
         }
         else
-        {   
+        {
             playerRb.velocity = new Vector3(moveDirection.x * walkSpeed, playerRb.velocity.y, moveDirection.y * walkSpeed);
         }
     }
@@ -146,12 +151,14 @@ public class playerMovement : MonoBehaviour
         {
             isFacingRight = !isFacingRight;
             playerSprite.flipX = true;
+            attackPoint.localPosition = new Vector3(flipAttack.x * -1, flipAttack.y, flipAttack.z);
         }
 
         else
         {
             isFacingRight = true;
             playerSprite.flipX = false;
+            attackPoint.localPosition = new Vector3(flipAttack.x, flipAttack.y, flipAttack.z);
         }
     }
 
@@ -184,11 +191,10 @@ public class playerMovement : MonoBehaviour
 
     public void takeDamage(float Damage)
     {
-        if(PlayerHealth >= 0)
+        if (!(PlayerHealth <= 0))
         {
-        Debug.Log("OUCH");
-        PlayerHealth -= Damage;
-        Health.fillAmount -= Damage;
+            PlayerHealth -= Damage;
+            Health.fillAmount -= Damage;
         }
     }
 }

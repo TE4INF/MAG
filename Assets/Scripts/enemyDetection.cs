@@ -89,11 +89,10 @@ public class enemyDetection : MonoBehaviour
         if (!alreadyAttacked)
         {
             //Attack code here
-            //
-            Debug.Log("Attack!");
             alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
             playerMovement.main.takeDamage(EnemyDamage);
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
         }
     }
 
