@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HighscoreUI : MonoBehaviour
 {
+    [SerializeField] GameObject panel;
     [SerializeField] GameObject HighscoreUIElementPrefab;
     [SerializeField] Transform elementWrapper;
 
@@ -23,7 +24,7 @@ public class HighscoreUI : MonoBehaviour
         {
             InputEntry el = list[i];
 
-            if(el.points > 0)
+            if(el.kills > 0)
             {
                 if(i >=uiElements.Count)
                 {
@@ -33,10 +34,10 @@ public class HighscoreUI : MonoBehaviour
                     uiElements.Add (inst);
                 }
 
-                var texts = uiElements[i].GetComponentInChildren<Text>();
+                var texts = uiElements[i].GetComponentsInChildren<Text>();
                 texts[0].text = el.Waves.ToString();
-                texts[1].text = el.player;
-                texts[2].text = el.Kills.ToString();
+                texts[1].text = el.playerName;
+                texts[2].text = el.kills.ToString();
             }
         }
     }

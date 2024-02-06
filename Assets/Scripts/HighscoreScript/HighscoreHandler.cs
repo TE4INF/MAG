@@ -35,8 +35,8 @@ public class HighscoreHandler : MonoBehaviour
     }
 
     public void AddHighscoreIfPossible (InputEntry element){
-        for (int i = 0; i < maxCount; i ++){
-            if(i >= highscoreList.Count || element.Waves > highscoreList[i].Waves)
+        for (int i = 0; i < maxCount; i++){
+            if(i >= highscoreList.Count || element.kills > highscoreList[i].kills)
             {
                 highscoreList.Insert (i, element);
 
