@@ -7,6 +7,7 @@ public class attack2 : MonoBehaviour
     public bool CanAttack = true;
     public bool IsAttacking = false;
     public float AttackCooldown = 1.0f;
+    public float AttackTime = 1.0f;
     public Transform AttackPoint;
     public float AttackRange = 0.5f;
     public LayerMask enemyLayers;
@@ -39,13 +40,19 @@ public class attack2 : MonoBehaviour
         CanAttack = false;
         IsAttacking = true;
         animator.SetTrigger("attack");
+        StartCoroutine(waitAnimation());
 
+
+    }
+    IEnumerator waitAnimation()
+    {
+        yield return new WaitForSeconds(AttackTime);
         Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, AttackRange);
 
         foreach (Collider enemy in hitEnemies)
         {
             Debug.Log("Detected" + enemy.name);
-            if (enemy.tag == "Enemy")
+            if (enemy.CompareTag("Enemy"))
             {
                 enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
             }
@@ -53,7 +60,9 @@ public class attack2 : MonoBehaviour
         }
 
         StartCoroutine(ResetAttackCooldown());
+
     }
+
 
     IEnumerator ResetAttackCooldown()
     {
