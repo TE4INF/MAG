@@ -28,5 +28,6 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("ded");
         Destroy(gameObject);
+        playerMovement.main.kill();
     }
 }
