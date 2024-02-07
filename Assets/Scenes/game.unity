@@ -4208,7 +4208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanAttack: 1
   IsAttacking: 0
-  AttackCooldown: 0.75
+  AttackCooldown: 0.6
   AttackTime: 0.5
   AttackPoint: {fileID: 1996807191}
   AttackRange: 0.25
@@ -4236,7 +4236,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.15, y: 0.34, z: 0.15}
-  m_Center: {x: 0, y: 0.16, z: 0}
+  m_Center: {x: 0.03, y: 0.16, z: 0}
 --- !u!1 &1806563539
 GameObject:
   m_ObjectHideFlags: 0
