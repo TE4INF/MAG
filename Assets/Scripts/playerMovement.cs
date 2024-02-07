@@ -50,7 +50,7 @@ public class playerMovement : MonoBehaviour
 
     [Header("Player attributes")]
     [SerializeField] private float PlayerHealth = 1;
-    [SerializeField] private float Kills = 0;
+    [SerializeField] public int Kills = 0;
     public GameObject DS;
     public GameObject UIHUB;
 
@@ -124,12 +124,7 @@ public class playerMovement : MonoBehaviour
         {
             FILLBAR.fillAmount -= 1f * Time.deltaTime;
         }
-        if (PlayerHealth <= 0)
-        {
-            DS.SetActive(true);
-            UIHUB.SetActive(false);
-            Time.timeScale = 0;
-        }
+        
     }
 
     private void FixedUpdate()
@@ -196,6 +191,12 @@ public class playerMovement : MonoBehaviour
         {
             PlayerHealth -= Damage;
             Health.fillAmount -= Damage;
+        }
+        if (PlayerHealth <= 0)
+        {
+            DS.SetActive(true);
+            UIHUB.SetActive(false);
+            Time.timeScale = 0;
         }
     }
 

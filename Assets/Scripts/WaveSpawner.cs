@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
     public TMP_Text waveName;
 
     private Wave currentWave;
-    private int currentWaveNumber;
+    public int currentWaveNumber;
     private float nextSpawnTime;
 
     private bool canSpawn = true;
