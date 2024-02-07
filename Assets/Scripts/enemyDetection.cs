@@ -19,6 +19,8 @@ public class enemyDetection : MonoBehaviour
     public float walkPointRange;
     //attack
     public float timeBetweenAttacks;
+
+    public float timeAttackDelay;
     bool alreadyAttacked;
     [SerializeField] private float EnemyDamage;
     //states
@@ -86,14 +88,27 @@ public class enemyDetection : MonoBehaviour
 
         transform.LookAt(player);
 
+
+
         if (!alreadyAttacked)
         {
             //Attack code here
             alreadyAttacked = true;
-            playerMovement.main.takeDamage(EnemyDamage);
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            //Play animation here
+
+            Invoke(nameof(AttackDelay), timeAttackDelay);
 
         }
+    }
+
+    private void AttackDelay()
+    {
+        if (playerInSightRange && playerInAttackRange)
+        {
+            playerMovement.main.takeDamage(EnemyDamage);
+        }
+
+        Invoke(nameof(ResetAttack), timeBetweenAttacks);
     }
 
     private void ResetAttack()

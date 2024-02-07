@@ -55,6 +55,7 @@ public class attack2 : MonoBehaviour
             if (enemy.CompareTag("Enemy"))
             {
                 enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                enemy.GetComponent<Enemy>().FlashRed();
             }
 
         }

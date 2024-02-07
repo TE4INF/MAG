@@ -251,6 +251,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 1
   timeBetweenAttacks: 1
+  timeAttackDelay: 1
   EnemyDamage: 0.1
   sightRange: 3.7
   attackRange: 0.1
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916cbd4ccbbd3a64dacb83526cd80d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 4483675088912318665}
   maxHealth: 100
 --- !u!114 &9042858258749391091
 MonoBehaviour:

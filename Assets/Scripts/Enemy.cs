@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public SpriteRenderer sprite;
     public int maxHealth = 100;
     int currentHealth;
     // Start is called before the first frame update
@@ -29,5 +30,16 @@ public class Enemy : MonoBehaviour
         Debug.Log("ded");
         Destroy(gameObject);
         playerMovement.main.kill();
+    }
+
+    public void FlashRed()
+    {
+        StartCoroutine(changeColor());
+    }
+    public IEnumerator changeColor()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = Color.white;
     }
 }
