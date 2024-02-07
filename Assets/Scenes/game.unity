@@ -154,10 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9254f2ce53124aa489a71771e532ae14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveSpawner: {fileID: 0}
+  PlayerMovement: {fileID: 0}
   highscoreHandler: {fileID: 108827625}
   nameInput: {fileID: 0}
-  kills: 59
-  Waves: 38
 --- !u!114 &108827625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5080,6 +5080,7 @@ MonoBehaviour:
   - {fileID: 571449008}
   animator: {fileID: 1537252285}
   waveName: {fileID: 1994239039}
+  currentWaveNumber: 0
 --- !u!4 &1537252284
 Transform:
   m_ObjectHideFlags: 0
