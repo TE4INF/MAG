@@ -6,22 +6,14 @@ using TMPro;
 
 public class InputHandler : MonoBehaviour
 {
+    [SerializeField] WaveSpawner waveSpawner;
+    [SerializeField] playerMovement PlayerMovement;
     [SerializeField] HighscoreHandler highscoreHandler;
     [SerializeField] TMP_InputField nameInput;
-    [SerializeField] int kills = 59;
-    [SerializeField] int Waves = 38;
-    [SerializeField] string filename;
 
-    //List<InputEntry> entries = new List<InputEntry> ();
-
-    private void Start(){
-        //entries = FileHandler.ReadListFromJSON<InputEntry> (filename);
-    }
 
     public void AddNameToList(){
-        //entries.Add (new InputEntry (Waves, nameInput.text, Kills));
-        highscoreHandler.AddHighscoreIfPossible (new InputEntry(Waves, nameInput.text, kills));
-        //FileHandler.SaveToJSON<InputEntry> (entries, filename);
+        highscoreHandler.AddHighscoreIfPossible (new InputEntry(waveSpawner.currentWaveNumber, nameInput.text, PlayerMovement.Kills));
         nameInput.text = "";
     }
 }
