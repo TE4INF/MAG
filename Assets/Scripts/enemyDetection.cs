@@ -13,6 +13,8 @@ public class enemyDetection : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+    Animator animator;
+
     //patroll
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -25,14 +27,14 @@ public class enemyDetection : MonoBehaviour
     [SerializeField] private float EnemyDamage;
     //states
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public bool playerInSightRange, playerInAttackRange, facingRight = true;
 
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -95,6 +97,7 @@ public class enemyDetection : MonoBehaviour
             //Attack code here
             alreadyAttacked = true;
             //Play animation here
+            animator.SetTrigger("attacking");
 
             Invoke(nameof(AttackDelay), timeAttackDelay);
 
