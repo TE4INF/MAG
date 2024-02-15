@@ -77,6 +77,8 @@ public class playerAttack : MonoBehaviour
         {
             // Debug if enemy is hit
             Debug.Log(hit.collider.name);
+            // Write code here on enemy getting damaged
+            // hit.collider.GetComponent<EnemyHealth>().currentHealth -= Damage;
 
             // Debug the hit point
             Debug.DrawLine(attackOrigin.position, hit.point, Color.red, 2.0f);
