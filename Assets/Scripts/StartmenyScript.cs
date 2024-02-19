@@ -11,6 +11,7 @@ public class StartmenyScript : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("game");
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
