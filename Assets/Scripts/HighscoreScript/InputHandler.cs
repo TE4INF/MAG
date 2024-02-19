@@ -12,8 +12,9 @@ public class InputHandler : MonoBehaviour
     [SerializeField] TMP_InputField nameInput;
 
 
-    public void AddNameToList(){
-        highscoreHandler.AddHighscoreIfPossible (new InputEntry(waveSpawner.currentWaveNumber, nameInput.text, PlayerMovement.Kills));
+    public void AddNameToList()
+    {
+        highscoreHandler.AddHighscoreIfPossible(new InputEntry(waveSpawner.currentWaveNumber, nameInput.text, PlayerMovement.Kills));
         nameInput.text = "";
     }
 }
