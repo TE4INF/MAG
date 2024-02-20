@@ -124,7 +124,7 @@ public class playerMovement : MonoBehaviour
 
         if (CD == true)
         {
-            FILLBAR.fillAmount -= 1f * Time.deltaTime;
+            FILLBAR.fillAmount -= 1f / dashDuration * Time.deltaTime;
         }
 
     }

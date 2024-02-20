@@ -6295,7 +6295,7 @@ MonoBehaviour:
   playerRb: {fileID: 1763718178}
   playerSprite: {fileID: 1597468947}
   Health: {fileID: 560844441}
-  walkSpeed: 0.75
+  walkSpeed: 0.7
   runSpeed: 2
   jumpForce: 3
   dashForce: 25
@@ -6305,8 +6305,8 @@ MonoBehaviour:
     m_Bits: 8
   groundPoint: {fileID: 1699751537}
   dashKey: 304
-  dashDuration: 1
-  dashCooldown: 1
+  dashDuration: 3
+  dashCooldown: 3
   CD: {fileID: 418860461}
   FILLBAR: {fileID: 1864583731}
   PlayerHealth: 1
