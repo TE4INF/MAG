@@ -51,7 +51,7 @@ public class enemyDetection : MonoBehaviour
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
 
-        Debug.Log(agent.velocity.x);
+        //Debug.Log(agent.velocity.x);
 
         if (agent.velocity.x < 0 && isFacingRight) { flip(); }
         if (agent.velocity.x > 0 && !isFacingRight) { flip(); }
