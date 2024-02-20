@@ -251,12 +251,12 @@ MonoBehaviour:
   isFacingRight: 1
   enemySprite: {fileID: 4483675088912318665}
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 1
+  walkPointRange: 10
   timeBetweenAttacks: 1
   timeAttackDelay: 0.7
   EnemyDamage: 0.1
-  sightRange: 3
-  attackRange: 0.3
+  sightRange: 5
+  attackRange: 0.25
   playerInSightRange: 0
   playerInAttackRange: 0
   facingRight: 1
@@ -276,7 +276,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 0.1
   m_BaseOffset: 0.03
