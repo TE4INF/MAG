@@ -68,9 +68,12 @@ public class HighscoreHandler : MonoBehaviour
     private void SaveHighscore()
     {
         string scoreString = inputhandler.GetScoreAsString();
+        string mailString = inputhandler.GetMailAssString();
         FileHandler.SaveToJSON<InputEntry>(highscoreList, filename);
         saveHighscore(scoreString);
+        SaveMail(mailString);
         Debug.Log(scoreString);
+        Debug.Log(mailString);
     }
 
 
@@ -97,5 +100,33 @@ public class HighscoreHandler : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void SaveMail(string pst)
+    {
+        StartCoroutine(PostMail(pst));
+    }
+
+    public IEnumerator PostMail(string mail)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("mail", mail);
+
+        UnityWebRequest www = UnityWebRequest.Post("https://itkompisar.ktcprojekt.se/php/storingmail.php", form);
+
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            string results = www.downloadHandler.text;
+
+            Debug.Log(results);
+        }
+
+        www.Dispose();
     }
 }

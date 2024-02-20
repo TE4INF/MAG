@@ -53,6 +53,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] public int Kills = 0;
     public GameObject DS;
     public GameObject UIHUB;
+    public GameObject PausemenuUI;
 
     private Vector3 flipAttack;
 
@@ -197,6 +198,7 @@ public class playerMovement : MonoBehaviour
             DS.SetActive(true);
             UIHUB.SetActive(false);
             Time.timeScale = 0;
+            Destroy(PausemenuUI);
         }
     }
 
