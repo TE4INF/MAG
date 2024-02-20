@@ -37,7 +37,8 @@ public class playerMovement : MonoBehaviour
     [SerializeField] Transform groundPoint;
 
     [Header("Input")]
-    [SerializeField] KeyCode dashKey = KeyCode.E;
+    [SerializeField] KeyCode dashKey = KeyCode.LeftShift;//KeyCode.E;
+
     private Vector2 moveInput;
 
 
@@ -79,10 +80,10 @@ public class playerMovement : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
-        else if (!Input.GetKey(KeyCode.LeftShift))
-        {
-            animator.SetFloat("Speed", 1);
-        }
+        //else if (!Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    animator.SetFloat("Speed", 1);
+        //}
         else
         {
             animator.SetFloat("Speed", 2);
@@ -125,21 +126,21 @@ public class playerMovement : MonoBehaviour
         {
             FILLBAR.fillAmount -= 1f * Time.deltaTime;
         }
-        
+
     }
 
     private void FixedUpdate()
     {
 
         // Moves left or right either walk or sprinting
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            playerRb.velocity = new Vector3(moveDirection.x * runSpeed, playerRb.velocity.y, moveDirection.y * runSpeed);
-        }
-        else
-        {
-            playerRb.velocity = new Vector3(moveDirection.x * walkSpeed, playerRb.velocity.y, moveDirection.y * walkSpeed);
-        }
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    playerRb.velocity = new Vector3(moveDirection.x * runSpeed, playerRb.velocity.y, moveDirection.y * runSpeed);
+        //}
+        //else
+        //{
+        playerRb.velocity = new Vector3(moveDirection.x * walkSpeed, playerRb.velocity.y, moveDirection.y * walkSpeed);
+        //}
     }
 
     void flip()
