@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 108827626}
   - component: {fileID: 108827625}
   - component: {fileID: 108827624}
+  - component: {fileID: 108827628}
   m_Layer: 0
   m_Name: HighscoreManager
   m_TagString: Untagged
@@ -158,6 +159,7 @@ MonoBehaviour:
   PlayerMovement: {fileID: 1763718176}
   highscoreHandler: {fileID: 108827625}
   nameInput: {fileID: 1450122901}
+  mail: {fileID: 0}
 --- !u!114 &108827625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +204,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &108827628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108827623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe7e97e4a9639c419a7dafcde79fff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField1: {fileID: 1450122901}
+  inputField2: {fileID: 643194281}
+  button: {fileID: 1113397423}
 --- !u!1 &116623821
 GameObject:
   m_ObjectHideFlags: 0
@@ -6429,6 +6446,7 @@ MonoBehaviour:
   Kills: 0
   DS: {fileID: 825821987}
   UIHUB: {fileID: 675829934}
+  PausemenuUI: {fileID: 0}
 --- !u!54 &1763718178
 Rigidbody:
   m_ObjectHideFlags: 0
