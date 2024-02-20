@@ -15,6 +15,10 @@ public class enemyDetection : MonoBehaviour
 
     Animator animator;
 
+    public bool isFacingRight = true;
+
+    [SerializeField] SpriteRenderer enemySprite;
+
     //patroll
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -46,6 +50,26 @@ public class enemyDetection : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
+
+        Debug.Log(agent.velocity.x);
+
+        if (agent.velocity.x < 0 && isFacingRight) { flip(); }
+        if (agent.velocity.x > 0 && !isFacingRight) { flip(); }
+
+    }
+
+    void flip()
+    {
+        if (isFacingRight)
+        {
+            isFacingRight = !isFacingRight;
+            enemySprite.flipX = true;
+        }
+        else
+        {
+            isFacingRight = true;
+            enemySprite.flipX = false;
+        }
 
     }
 
@@ -98,6 +122,7 @@ public class enemyDetection : MonoBehaviour
             alreadyAttacked = true;
             //Play animation here
             animator.SetTrigger("attacking");
+            Debug.Log("play anim");
 
             Invoke(nameof(AttackDelay), timeAttackDelay);
 
@@ -109,6 +134,7 @@ public class enemyDetection : MonoBehaviour
         if (playerInSightRange && playerInAttackRange)
         {
             playerMovement.main.takeDamage(EnemyDamage);
+            Debug.Log("Damage");
         }
 
         Invoke(nameof(ResetAttack), timeBetweenAttacks);

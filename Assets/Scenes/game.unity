@@ -366,7 +366,7 @@ Transform:
   m_GameObject: {fileID: 167763383}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.15, y: 0.166, z: 2.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -860,7 +860,7 @@ Transform:
   m_GameObject: {fileID: 571449007}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0.166, z: 0.728}
+  m_LocalPosition: {x: 3.22, y: 0.166, z: 3.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1540,6 +1540,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &721824326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721824327}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &721824327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721824326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.74, y: 0.166, z: -2.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979794390}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &761512710
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,6 +3611,8 @@ Transform:
   - {fileID: 1707361181}
   - {fileID: 571449008}
   - {fileID: 167763384}
+  - {fileID: 721824327}
+  - {fileID: 1263356823}
   m_Father: {fileID: 1537252284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1005965889
@@ -4497,6 +4530,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255246517}
   m_CullTransparentMesh: 1
+--- !u!1 &1263356822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263356823}
+  m_Layer: 0
+  m_Name: GameObject (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263356823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263356822}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.36, y: 0.166, z: -5.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979794390}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1291558567
 GameObject:
   m_ObjectHideFlags: 0
@@ -5563,23 +5627,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - waveName: first wave
-    noOfEnemies: 2
+  - waveName: 
+    noOfEnemies: 999999
     typeOfEnemies:
     - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 5
-  - waveName: second wave
-    noOfEnemies: 2
-    typeOfEnemies:
-    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 5
-  - waveName: third wave
-    noOfEnemies: 2
-    typeOfEnemies:
-    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 5
+    spawnInterval: 1
   spawnPoints:
+  - {fileID: 1707361181}
   - {fileID: 571449008}
+  - {fileID: 167763384}
+  - {fileID: 721824327}
+  - {fileID: 1263356823}
   animator: {fileID: 1537252285}
   waveName: {fileID: 1994239039}
   currentWaveNumber: 0
@@ -6127,7 +6185,6 @@ GameObject:
   - component: {fileID: 1700429022}
   - component: {fileID: 1700429025}
   - component: {fileID: 1700429024}
-  - component: {fileID: 1700429023}
   m_Layer: 6
   m_Name: playerShadow
   m_TagString: Untagged
@@ -6150,27 +6207,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1763718175}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1700429023
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700429021}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1700429024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6246,7 +6282,7 @@ Transform:
   m_GameObject: {fileID: 1707361180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.21, y: 0.09, z: -9.23}
+  m_LocalPosition: {x: 3.81, y: 0.166, z: -2.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6412,7 +6448,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -6441,7 +6477,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
-  attackDamage: 40
+  attackDamage: 30
 --- !u!65 &1763718182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6935,7 +6971,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930738349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -7184,7 +7220,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994239038}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
