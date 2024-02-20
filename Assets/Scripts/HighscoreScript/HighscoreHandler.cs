@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class HighscoreHandler : MonoBehaviour
 {
-
+    InputHandler inputhandler;
 
     List<InputEntry> highscoreList = new List<InputEntry>();
     [SerializeField] int maxCount = 6;
@@ -19,7 +19,7 @@ public class HighscoreHandler : MonoBehaviour
     {
         LoadHighscores();
 
-
+        inputhandler = GetComponent<InputHandler>();
     }
 
     private void LoadHighscores()
@@ -37,7 +37,7 @@ public class HighscoreHandler : MonoBehaviour
         }
     }
 
-    public void SaveHighscore(string pst)
+    public void saveHighscore(string pst)
     {
         StartCoroutine(PosttData(pst));
     }
@@ -67,9 +67,12 @@ public class HighscoreHandler : MonoBehaviour
 
     private void SaveHighscore()
     {
+        string scoreString = inputhandler.GetScoreAsString();
         FileHandler.SaveToJSON<InputEntry>(highscoreList, filename);
-        SaveHighscore("98");
+        saveHighscore(scoreString);
+        Debug.Log(scoreString);
     }
+
 
     public void AddHighscoreIfPossible(InputEntry element)
     {
