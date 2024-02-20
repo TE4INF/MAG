@@ -6304,7 +6304,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundPoint: {fileID: 1699751537}
-  dashKey: 101
+  dashKey: 304
   dashDuration: 1
   dashCooldown: 1
   CD: {fileID: 418860461}
