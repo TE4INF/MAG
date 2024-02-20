@@ -17,17 +17,17 @@ public class InputHandler : MonoBehaviour
     {
         // Create a new InputEntry with the current score
         InputEntry entry = new InputEntry(waveSpawner.currentWaveNumber, nameInput.text, PlayerMovement.Kills);
-        
+
         // Return the score as a string representation
-        return $"Player: {entry.playerName}, Kills: {entry.kills}";
+        return $"{entry.kills} : {entry.playerName}";
     }
 
     public string GetMailAsString()
     {
-        
+
         // Create a new InputEntry with the current score
         MailEntry entry = new MailEntry(mail.text, nameInput.text);
-        
+
         // Return the score as a string representation
         return $"Player: {entry.playerName}, mail: {entry.Gmail}";
     }
