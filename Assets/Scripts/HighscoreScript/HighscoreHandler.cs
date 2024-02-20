@@ -68,7 +68,7 @@ public class HighscoreHandler : MonoBehaviour
     private void SaveHighscore()
     {
         string scoreString = inputhandler.GetScoreAsString();
-        string mailString = inputhandler.GetMailAssString();
+        string mailString = inputhandler.GetMailAsString();
         FileHandler.SaveToJSON<InputEntry>(highscoreList, filename);
         saveHighscore(scoreString);
         SaveMail(mailString);

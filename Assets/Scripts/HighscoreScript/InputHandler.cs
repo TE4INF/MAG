@@ -22,7 +22,7 @@ public class InputHandler : MonoBehaviour
         return $"Player: {entry.playerName}, Kills: {entry.kills}";
     }
 
-    public string GetMailAssString()
+    public string GetMailAsString()
     {
         
         // Create a new InputEntry with the current score
