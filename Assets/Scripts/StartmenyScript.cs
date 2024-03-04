@@ -21,4 +21,9 @@ public class StartmenyScript : MonoBehaviour
        Application.Quit();
     }
 
+    public void Startmeny()
+    {
+        SceneManager.LoadScene("Starting menu");
+        Debug.Log("startmeny");
+    }
 }
