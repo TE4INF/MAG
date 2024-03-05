@@ -55,6 +55,7 @@ public class playerMovement : MonoBehaviour
     public GameObject DS;
     public GameObject UIHUB;
     public GameObject PausemenuUI;
+    private float elapsedTime = 0f;
 
     private Vector3 flipAttack;
 
@@ -73,6 +74,7 @@ public class playerMovement : MonoBehaviour
     {
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
+        elapsedTime += Time.deltaTime;
 
         moveDirection = new Vector2(moveInput.x, moveInput.y).normalized;
 
@@ -200,7 +202,12 @@ public class playerMovement : MonoBehaviour
             UIHUB.SetActive(false);
             Time.timeScale = 0;
             Destroy(PausemenuUI);
+            Display.main.Dead();
         }
+    }
+    public float GetElapsedTime()
+    {
+        return elapsedTime;
     }
 
     public void kill()
