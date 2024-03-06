@@ -10,7 +10,7 @@ public class tutorial : MonoBehaviour
     {
         gameUI.SetActive(false);
         Debug.Log("pause");
-        Invoke("tutorialend", 4f);
+        Invoke("tutorialend", 3f);
     }
     void tutorialend()
     {

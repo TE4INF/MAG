@@ -32,7 +32,7 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         currentWave = waves[currentWaveNumber];
-        Invoke ("SpawnWave", 4f);
+        Invoke ("SpawnWave", 3f);
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (totalEnemies.Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length && canAnimate)
         {
