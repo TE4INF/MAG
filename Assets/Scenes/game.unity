@@ -6659,7 +6659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanAttack: 1
   IsAttacking: 0
-  AttackCooldown: 0.6
+  AttackCooldown: 0.3
   AttackTime: 0.5
   AttackPoint: {fileID: 1996807191}
   AttackRange: 0.25
