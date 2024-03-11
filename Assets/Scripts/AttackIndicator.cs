@@ -14,7 +14,7 @@ public class AttackIndicator : MonoBehaviour
         screenPos = Input.mousePosition;
         screenPos.z = Camera.main.nearClipPlane + 1;
         Pointerposition = screenPos;
-        transform.right = (Pointerposition - (Vector2)transform.localPosition).normalized;
+        transform.right = (Pointerposition - (Vector2)transform.position).normalized;
     }
 
 
