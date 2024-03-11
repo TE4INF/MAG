@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.ComponentModel.Design;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -52,6 +53,7 @@ public class playerMovement : MonoBehaviour
     [Header("Player attributes")]
     [SerializeField] private float PlayerHealth = 1;
     [SerializeField] public int Kills = 0;
+    public TextMeshProUGUI scoreText;
     public GameObject DS;
     public GameObject UIHUB;
     public GameObject PausemenuUI;
@@ -68,6 +70,7 @@ public class playerMovement : MonoBehaviour
     {
         flipAttack = attackPoint.localPosition;
         animator = GetComponentInChildren<Animator>();
+        scoreText.text = "Kills: " + playerMovement.main.Kills;
     }
 
     void Update()
@@ -213,5 +216,10 @@ public class playerMovement : MonoBehaviour
     public void kill()
     {
         Kills++;
+        updateScore();
+    }
+    public void updateScore()
+    {
+        scoreText.text = "Kills: " + playerMovement.main.Kills;
     }
 }
