@@ -6302,7 +6302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: first wave
-    noOfEnemies: 100
+    noOfEnemies: 999999
     typeOfEnemies:
     - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
     spawnInterval: 1
