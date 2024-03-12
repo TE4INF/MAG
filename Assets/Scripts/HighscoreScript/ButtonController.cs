@@ -15,13 +15,12 @@ public class ButtonController : MonoBehaviour
 
         // Register callback methods for input field value changes
         inputField1.onValueChanged.AddListener(delegate { CheckInputFields(); });
-        inputField2.onValueChanged.AddListener(delegate { CheckInputFields(); });
     }
 
     void CheckInputFields()
     {
         // Check if both input fields have text
-        if (!string.IsNullOrEmpty(inputField1.text) && !string.IsNullOrEmpty(inputField2.text))
+        if (!string.IsNullOrEmpty(inputField1.text))
         {
             // Enable the button if both input fields have text
             button.interactable = true;
