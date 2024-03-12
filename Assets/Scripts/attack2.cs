@@ -15,6 +15,7 @@ public class attack2 : MonoBehaviour
     public int attackDamage = 40;
 
     Animator animator;
+    public AudioClip clip; 
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class attack2 : MonoBehaviour
         IsAttacking = true;
         animator.SetTrigger("attack");
         StartCoroutine(waitAnimation());
+        AudioSource.PlayClipAtPoint(clip, AttackPoint.position);
 
 
     }

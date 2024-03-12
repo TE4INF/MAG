@@ -15,7 +15,7 @@ public class playerMovement : MonoBehaviour
     [Header("Player references")]
     [SerializeField] Rigidbody playerRb;
     [SerializeField] SpriteRenderer playerSprite;
-    Vector3 moveDirection;
+    public Vector3 moveDirection;
     Rigidbody rb;
     public Image Health;
 
@@ -60,6 +60,11 @@ public class playerMovement : MonoBehaviour
     private float elapsedTime = 0f;
 
     private Vector3 flipAttack;
+
+    [Header("Sounds")]
+    public AudioClip playerHurtSound;
+    public AudioClip playerDeathSound;
+    public AudioClip playerWalkSound;
 
     private void Awake()
     {
@@ -118,18 +123,29 @@ public class playerMovement : MonoBehaviour
         }
 
         // Flips the sprite according to movement
-        if (moveInput.x < 0 && isFacingRight)
-        {
-            flip();
-        }
-        else if (moveInput.x > 0 && !isFacingRight)
-        {
-            flip();
-        }
+        // if (moveInput.x < 0 && isFacingRight)
+        // {
+        //     flip();
+        // }
+        // else if (moveInput.x > 0 && !isFacingRight)
+        // {
+        //     flip();
+        // }
 
         if (CD == true)
         {
             FILLBAR.fillAmount -= 1f / dashDuration * Time.deltaTime;
+        }
+
+        if (Input.mousePosition.x < Screen.width / 2f)
+        {
+            // => left half
+            playerSprite.flipX = true;
+        }
+        else
+        {
+            // => right half
+            playerSprite.flipX = false;
         }
 
     }
@@ -148,22 +164,22 @@ public class playerMovement : MonoBehaviour
         //}
     }
 
-    void flip()
-    {
-        if (isFacingRight)
-        {
-            isFacingRight = !isFacingRight;
-            playerSprite.flipX = true;
-            attackPoint.localPosition = new Vector3(flipAttack.x * -1, flipAttack.y, flipAttack.z);
-        }
+    // void flip()
+    // {
+    //     if (isFacingRight)
+    //     {
+    //         isFacingRight = !isFacingRight;
+    //         playerSprite.flipX = true;
+    //         //attackPoint.localPosition = new Vector3(flipAttack.x * -1, flipAttack.y, flipAttack.z);
+    //     }
 
-        else
-        {
-            isFacingRight = true;
-            playerSprite.flipX = false;
-            attackPoint.localPosition = new Vector3(flipAttack.x, flipAttack.y, flipAttack.z);
-        }
-    }
+    //     else
+    //     {
+    //         isFacingRight = true;
+    //         playerSprite.flipX = false;
+    //         //attackPoint.localPosition = new Vector3(flipAttack.x, flipAttack.y, flipAttack.z);
+    //     }
+    // }
 
     private void Dash()
     {
@@ -196,11 +212,14 @@ public class playerMovement : MonoBehaviour
     {
         if (!(PlayerHealth <= 0))
         {
+            AudioSource.PlayClipAtPoint(playerHurtSound, moveDirection);
             PlayerHealth -= Damage;
             Health.fillAmount -= Damage;
         }
         if (PlayerHealth <= 0)
         {
+            AudioSource.PlayClipAtPoint(playerDeathSound, moveDirection);
+
             DS.SetActive(true);
             UIHUB.SetActive(false);
             Time.timeScale = 0;

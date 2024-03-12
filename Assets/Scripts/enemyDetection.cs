@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 public class enemyDetection : MonoBehaviour
@@ -33,6 +34,8 @@ public class enemyDetection : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange, facingRight = true;
 
+    //sounds
+    public AudioClip enemyAttackSound;
 
     private void Awake()
     {
@@ -114,12 +117,11 @@ public class enemyDetection : MonoBehaviour
 
         transform.LookAt(player);
 
-
-
         if (!alreadyAttacked)
         {
             //Attack code here
             alreadyAttacked = true;
+            AudioSource.PlayClipAtPoint(enemyAttackSound, transform.position);
             //Play animation here
             animator.SetTrigger("attacking");
             Debug.Log("play anim");
