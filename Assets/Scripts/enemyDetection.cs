@@ -35,6 +35,7 @@ public class enemyDetection : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange, facingRight = true;
 
     //sounds
+    public AudioClip enemyAttackSound;
 
     private void Awake()
     {
@@ -116,12 +117,11 @@ public class enemyDetection : MonoBehaviour
 
         transform.LookAt(player);
 
-
-
         if (!alreadyAttacked)
         {
             //Attack code here
             alreadyAttacked = true;
+            AudioSource.PlayClipAtPoint(enemyAttackSound, transform.position);
             //Play animation here
             animator.SetTrigger("attacking");
             Debug.Log("play anim");

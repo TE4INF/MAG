@@ -6824,8 +6824,9 @@ MonoBehaviour:
   DS: {fileID: 825821987}
   UIHUB: {fileID: 675829934}
   PausemenuUI: {fileID: 1599705412}
-  playerHurt: {fileID: 8300000, guid: 262462308ce94304abb5d15707bf828a, type: 3}
-  playerDeath: {fileID: 8300000, guid: 8367d174225021f49a7b1a9d7c549653, type: 3}
+  playerHurtSound: {fileID: 8300000, guid: 97074840c73412944926e25ccb009482, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: 8367d174225021f49a7b1a9d7c549653, type: 3}
+  playerWalkSound: {fileID: 8300000, guid: 5707ead351d004c418fac1a40a161053, type: 3}
 --- !u!54 &1763718178
 Rigidbody:
   m_ObjectHideFlags: 0

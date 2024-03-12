@@ -62,8 +62,9 @@ public class playerMovement : MonoBehaviour
     private Vector3 flipAttack;
 
     [Header("Sounds")]
-    public AudioClip playerHurt;
-    public AudioClip playerDeath;
+    public AudioClip playerHurtSound;
+    public AudioClip playerDeathSound;
+    public AudioClip playerWalkSound;
 
     private void Awake()
     {
@@ -190,7 +191,7 @@ public class playerMovement : MonoBehaviour
     }
 
     private void resetDash()
-    {
+    {   
         CD.SetActive(false);
         // canDash = true;
         // isDashing = false;
@@ -200,12 +201,14 @@ public class playerMovement : MonoBehaviour
     {
         if (!(PlayerHealth <= 0))
         {
-            AudioSource.PlayClipAtPoint(playerHurt, moveDirection);
+            AudioSource.PlayClipAtPoint(playerHurtSound, moveDirection);
             PlayerHealth -= Damage;
             Health.fillAmount -= Damage;
         }
         if (PlayerHealth <= 0)
         {
+            AudioSource.PlayClipAtPoint(playerDeathSound, moveDirection);
+            
             DS.SetActive(true);
             UIHUB.SetActive(false);
             Time.timeScale = 0;

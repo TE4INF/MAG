@@ -260,7 +260,7 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   facingRight: 1
-  playerHurt: {fileID: 8300000, guid: 262462308ce94304abb5d15707bf828a, type: 3}
+  enemyAttackSound: {fileID: 8300000, guid: ec119ab592fbbd44fa0ed06db93aa9bd, type: 3}
 --- !u!195 &1437072638074519166
 NavMeshAgent:
   m_ObjectHideFlags: 0
