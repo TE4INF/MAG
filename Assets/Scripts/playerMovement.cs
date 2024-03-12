@@ -123,18 +123,29 @@ public class playerMovement : MonoBehaviour
         }
 
         // Flips the sprite according to movement
-        if (moveInput.x < 0 && isFacingRight)
-        {
-            flip();
-        }
-        else if (moveInput.x > 0 && !isFacingRight)
-        {
-            flip();
-        }
+        // if (moveInput.x < 0 && isFacingRight)
+        // {
+        //     flip();
+        // }
+        // else if (moveInput.x > 0 && !isFacingRight)
+        // {
+        //     flip();
+        // }
 
         if (CD == true)
         {
             FILLBAR.fillAmount -= 1f / dashDuration * Time.deltaTime;
+        }
+
+        if (Input.mousePosition.x < Screen.width / 2f)
+        {
+            // => left half
+            playerSprite.flipX = true;
+        }
+        else
+        {
+            // => right half
+            playerSprite.flipX = false;
         }
 
     }
@@ -153,22 +164,22 @@ public class playerMovement : MonoBehaviour
         //}
     }
 
-    void flip()
-    {
-        if (isFacingRight)
-        {
-            isFacingRight = !isFacingRight;
-            playerSprite.flipX = true;
-            //attackPoint.localPosition = new Vector3(flipAttack.x * -1, flipAttack.y, flipAttack.z);
-        }
+    // void flip()
+    // {
+    //     if (isFacingRight)
+    //     {
+    //         isFacingRight = !isFacingRight;
+    //         playerSprite.flipX = true;
+    //         //attackPoint.localPosition = new Vector3(flipAttack.x * -1, flipAttack.y, flipAttack.z);
+    //     }
 
-        else
-        {
-            isFacingRight = true;
-            playerSprite.flipX = false;
-            //attackPoint.localPosition = new Vector3(flipAttack.x, flipAttack.y, flipAttack.z);
-        }
-    }
+    //     else
+    //     {
+    //         isFacingRight = true;
+    //         playerSprite.flipX = false;
+    //         //attackPoint.localPosition = new Vector3(flipAttack.x, flipAttack.y, flipAttack.z);
+    //     }
+    // }
 
     private void Dash()
     {
@@ -191,7 +202,7 @@ public class playerMovement : MonoBehaviour
     }
 
     private void resetDash()
-    {   
+    {
         CD.SetActive(false);
         // canDash = true;
         // isDashing = false;
@@ -208,7 +219,7 @@ public class playerMovement : MonoBehaviour
         if (PlayerHealth <= 0)
         {
             AudioSource.PlayClipAtPoint(playerDeathSound, moveDirection);
-            
+
             DS.SetActive(true);
             UIHUB.SetActive(false);
             Time.timeScale = 0;
