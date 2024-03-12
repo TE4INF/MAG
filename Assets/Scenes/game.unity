@@ -7151,7 +7151,7 @@ MonoBehaviour:
   CanAttack: 1
   IsAttacking: 0
   AttackCooldown: 0.25
-  AttackTime: 0.5
+  AttackTime: 0.3
   AttackPoint: {fileID: 1996807191}
   AttackRange: 0.3
   enemyLayers:
