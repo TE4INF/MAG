@@ -10,7 +10,8 @@ public class StartmenyScript : MonoBehaviour
     // Start is called before the first frame update
     public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("game");
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -20,4 +21,9 @@ public class StartmenyScript : MonoBehaviour
        Application.Quit();
     }
 
+    public void Startmeny()
+    {
+        SceneManager.LoadScene("Starting menu");
+        Debug.Log("startmeny");
+    }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.ComponentModel.Design;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -37,7 +38,8 @@ public class playerMovement : MonoBehaviour
     [SerializeField] Transform groundPoint;
 
     [Header("Input")]
-    [SerializeField] KeyCode dashKey = KeyCode.E;
+    [SerializeField] KeyCode dashKey = KeyCode.LeftShift;//KeyCode.E;
+
     private Vector2 moveInput;
 
 
@@ -51,8 +53,11 @@ public class playerMovement : MonoBehaviour
     [Header("Player attributes")]
     [SerializeField] private float PlayerHealth = 1;
     [SerializeField] public int Kills = 0;
+    public TextMeshProUGUI scoreText;
     public GameObject DS;
     public GameObject UIHUB;
+    public GameObject PausemenuUI;
+    private float elapsedTime = 0f;
 
     private Vector3 flipAttack;
 
@@ -65,12 +70,14 @@ public class playerMovement : MonoBehaviour
     {
         flipAttack = attackPoint.localPosition;
         animator = GetComponentInChildren<Animator>();
+        scoreText.text = "Kills: " + playerMovement.main.Kills;
     }
 
     void Update()
     {
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
+        elapsedTime += Time.deltaTime;
 
         moveDirection = new Vector2(moveInput.x, moveInput.y).normalized;
 
@@ -78,10 +85,10 @@ public class playerMovement : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
-        else if (!Input.GetKey(KeyCode.LeftShift))
-        {
-            animator.SetFloat("Speed", 1);
-        }
+        //else if (!Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    animator.SetFloat("Speed", 1);
+        //}
         else
         {
             animator.SetFloat("Speed", 2);
@@ -122,23 +129,23 @@ public class playerMovement : MonoBehaviour
 
         if (CD == true)
         {
-            FILLBAR.fillAmount -= 1f * Time.deltaTime;
+            FILLBAR.fillAmount -= 1f / dashDuration * Time.deltaTime;
         }
-        
+
     }
 
     private void FixedUpdate()
     {
 
         // Moves left or right either walk or sprinting
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            playerRb.velocity = new Vector3(moveDirection.x * runSpeed, playerRb.velocity.y, moveDirection.y * runSpeed);
-        }
-        else
-        {
-            playerRb.velocity = new Vector3(moveDirection.x * walkSpeed, playerRb.velocity.y, moveDirection.y * walkSpeed);
-        }
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    playerRb.velocity = new Vector3(moveDirection.x * runSpeed, playerRb.velocity.y, moveDirection.y * runSpeed);
+        //}
+        //else
+        //{
+        playerRb.velocity = new Vector3(moveDirection.x * walkSpeed, playerRb.velocity.y, moveDirection.y * walkSpeed);
+        //}
     }
 
     void flip()
@@ -197,11 +204,22 @@ public class playerMovement : MonoBehaviour
             DS.SetActive(true);
             UIHUB.SetActive(false);
             Time.timeScale = 0;
+            Destroy(PausemenuUI);
+            Display.main.Dead();
         }
+    }
+    public float GetElapsedTime()
+    {
+        return elapsedTime;
     }
 
     public void kill()
     {
         Kills++;
+        updateScore();
+    }
+    public void updateScore()
+    {
+        scoreText.text = "Kills: " + playerMovement.main.Kills;
     }
 }

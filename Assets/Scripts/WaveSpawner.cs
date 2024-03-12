@@ -32,7 +32,7 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         currentWave = waves[currentWaveNumber];
-        SpawnWave();
+        Invoke ("SpawnWave", 3f);
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (totalEnemies.Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length && canAnimate)
         {
@@ -52,6 +52,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (canSpawn && nextSpawnTime < Time.time)
         {
+            Debug.Log("spawn incoming");
             GameObject randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
             Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
