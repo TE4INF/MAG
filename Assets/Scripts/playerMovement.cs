@@ -159,14 +159,14 @@ public class playerMovement : MonoBehaviour
         {
             isFacingRight = !isFacingRight;
             playerSprite.flipX = true;
-            attackPoint.localPosition = new Vector3(flipAttack.x * -1, flipAttack.y, flipAttack.z);
+            //attackPoint.localPosition = new Vector3(flipAttack.x * -1, flipAttack.y, flipAttack.z);
         }
 
         else
         {
             isFacingRight = true;
             playerSprite.flipX = false;
-            attackPoint.localPosition = new Vector3(flipAttack.x, flipAttack.y, flipAttack.z);
+            //attackPoint.localPosition = new Vector3(flipAttack.x, flipAttack.y, flipAttack.z);
         }
     }
 
