@@ -15,7 +15,7 @@ public class playerMovement : MonoBehaviour
     [Header("Player references")]
     [SerializeField] Rigidbody playerRb;
     [SerializeField] SpriteRenderer playerSprite;
-    Vector3 moveDirection;
+    public Vector3 moveDirection;
     Rigidbody rb;
     public Image Health;
 
@@ -60,6 +60,10 @@ public class playerMovement : MonoBehaviour
     private float elapsedTime = 0f;
 
     private Vector3 flipAttack;
+
+    [Header("Sounds")]
+    public AudioClip playerHurt;
+    public AudioClip playerDeath;
 
     private void Awake()
     {
@@ -196,6 +200,7 @@ public class playerMovement : MonoBehaviour
     {
         if (!(PlayerHealth <= 0))
         {
+            AudioSource.PlayClipAtPoint(playerHurt, moveDirection);
             PlayerHealth -= Damage;
             Health.fillAmount -= Damage;
         }

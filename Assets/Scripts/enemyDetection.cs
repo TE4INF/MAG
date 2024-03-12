@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 public class enemyDetection : MonoBehaviour
@@ -33,6 +34,7 @@ public class enemyDetection : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange, facingRight = true;
 
+    //sounds
 
     private void Awake()
     {

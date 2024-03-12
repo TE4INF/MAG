@@ -6802,6 +6802,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1996807191}
   playerRb: {fileID: 1763718178}
   playerSprite: {fileID: 1597468947}
+  moveDirection: {x: 0, y: 0, z: 0}
   Health: {fileID: 560844441}
   walkSpeed: 0.7
   runSpeed: 2
@@ -6823,6 +6824,8 @@ MonoBehaviour:
   DS: {fileID: 825821987}
   UIHUB: {fileID: 675829934}
   PausemenuUI: {fileID: 1599705412}
+  playerHurt: {fileID: 8300000, guid: 262462308ce94304abb5d15707bf828a, type: 3}
+  playerDeath: {fileID: 8300000, guid: 8367d174225021f49a7b1a9d7c549653, type: 3}
 --- !u!54 &1763718178
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6872,6 +6875,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDamage: 30
+  clip: {fileID: 8300000, guid: edd954b86f6be8940872f7d4d090f15a, type: 3}
 --- !u!65 &1763718182
 BoxCollider:
   m_ObjectHideFlags: 0
