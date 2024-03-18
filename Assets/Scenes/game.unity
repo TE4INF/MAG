@@ -6725,7 +6725,6 @@ MonoBehaviour:
     noOfEnemies: 999999
     typeOfEnemies:
     - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    - {fileID: 5509958699358933186, guid: 72c461219798352439cab9c03cbb9339, type: 3}
     spawnInterval: 1
   spawnPoints:
   - {fileID: 1707361181}
