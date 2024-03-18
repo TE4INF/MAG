@@ -6,15 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class StartmenyScript : MonoBehaviour
 {
-
-    // Start is called before the first frame update
     public void Play()
     {
         SceneManager.LoadScene("game");
         Time.timeScale = 1;
     }
 
-    // Update is called once per frame
     public void Quit()
     {
        Debug.Log("Quit");
