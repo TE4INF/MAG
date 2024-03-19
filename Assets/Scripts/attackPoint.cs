@@ -36,6 +36,14 @@ public class attackPoint : MonoBehaviour
 
 
         Vector3 newPos = localPos - (direction.normalized * radius);
+        if (newPos.z < 0)
+        {
+            newPos.z = newPos.z * 2.5f;
+        }
+        else
+        {
+            newPos.z = newPos.z * 1.5f;
+        }
 
         transform.localPosition = new Vector3(newPos.x, offset, newPos.z);
     }
