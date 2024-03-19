@@ -4482,9 +4482,9 @@ RectTransform:
   - {fileID: 1507572908}
   m_Father: {fileID: 675829938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -897, y: -379}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 49, y: 159}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041037470
@@ -6722,7 +6722,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: first wave
-    noOfEnemies: 99999
+    noOfEnemies: 1
+    typeOfEnemies:
+    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
+    spawnInterval: 1
+  - waveName: Secondwave
+    noOfEnemies: 1
+    typeOfEnemies:
+    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
+    spawnInterval: 1
+  - waveName: Thirdwave
+    noOfEnemies: 1
     typeOfEnemies:
     - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
     spawnInterval: 1
@@ -8413,7 +8423,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994239038}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
