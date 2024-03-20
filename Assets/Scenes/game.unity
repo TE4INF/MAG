@@ -6746,11 +6746,6 @@ MonoBehaviour:
     typeOfEnemies:
     - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
     spawnInterval: 1
-  - waveName: Sixth Wave
-    noOfEnemies: 50
-    typeOfEnemies:
-    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 1
   spawnPoints:
   - {fileID: 1707361181}
   - {fileID: 571449008}
