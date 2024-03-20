@@ -64,7 +64,6 @@ public class playerMovement : MonoBehaviour
     [Header("Sounds")]
     public AudioClip playerHurtSound;
     public AudioClip playerDeathSound;
-    public AudioClip playerWalkSound;
 
     private void Awake()
     {
