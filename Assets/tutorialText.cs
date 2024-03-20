@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class tutorialText : MonoBehaviour
 {
 
-    int tutorialAmount = 4;
+    int tutorialAmount;
     int value = 0;
     public string[] tutorialTexts;
     public TextMeshProUGUI displayText;
@@ -18,7 +19,7 @@ public class tutorialText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(tutorialTexts[value]);
+        tutorialAmount = tutorialTexts.Length;
         displayText.text = tutorialTexts[value];
     }
 
@@ -30,11 +31,19 @@ public class tutorialText : MonoBehaviour
 
     public void nextTutorial()
     {
-        if (value <= tutorialAmount)
+        value += 1;
+
+        if (value == tutorialAmount)
         {
-            value += 1;
+            SceneManager.LoadScene("game");
+                return;
+        }
+
+        if (value < tutorialAmount)
+        {
             displayText.text = tutorialTexts[value];
         }
 
+        
     }
 }
