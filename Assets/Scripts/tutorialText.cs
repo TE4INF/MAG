@@ -12,21 +12,41 @@ public class tutorialText : MonoBehaviour
     [Header("Tutorial Text")]
     int tutorialAmount;
     int value = 0;
-    public string[] tutorialTexts;
-    public TextMeshProUGUI displayText;
+    [SerializeField] string[] tutorialTexts;
+    [SerializeField] TextMeshProUGUI displayText;
 
-
-
+    // [Header("Checks")]
+    // [SerializeField] Transform player;
+    // private Vector3 lastPosition;
+    // float  movementTimer;
+    // float moveTime = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         tutorialAmount = tutorialTexts.Length;
         displayText.text = tutorialTexts[value];
+        // lastPosition = player.position;
+
     }
 
+    // void Update()
+    // {
+    //     if (player.position != Vector3.zero)
+    //     {
+    //         movementTimer += Time.deltaTime;
+    //         Debug.Log("Current time: " + movementTimer + " - Time to reach: " + moveTime);
+    //     }
+
+    //     if (movementTimer >= moveTime)
+    //     {
+    //         nextTutorial();
+    //     }
+    // }
+
+    
     public void lastTutorial()
-    {
+    {       
         value -= 1;
         displayText.text = tutorialTexts[value];
     }

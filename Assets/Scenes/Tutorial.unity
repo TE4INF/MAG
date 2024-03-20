@@ -2201,12 +2201,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialTexts:
   - Welcome to Kingdom of Legends. You are a peasent fighting the kingdom.
-  - You walk with WASD.
-  - You can dash forward in the direction your moving by pressing Left-Shift.
-  - You attack by pressing left click on your mouse.
+  - You walk around with WASD. Try it now!
+  - You can dash forward in the direction your moving by pressing Left-Shift. Try
+    it now!
+  - You attack by pressing left click on your mouse. Try it now!
   - Enemies can come in any type or shape.
-  - The placement of your mouse is important! That's the direction your attack will
-    be going.
+  - 'The placement of your mouse is important! That''s the direction your attack
+    will be going. '
+  - Move your mouse around the screen to see how the arrow follows.
   - Are you ready to face the world? Press next!
   displayText: {fileID: 382886008}
 --- !u!1 &430969346
@@ -3459,8 +3461,8 @@ MonoBehaviour:
   screenPosition: {x: 0, y: 0, z: 0}
   worldPosition: {x: 0, y: 0, z: 0}
   radius: 0.25
-  offset: 0.1
-  player123: {fileID: 1166540576}
+  zOffset1: 2.5
+  zOffset2: 1.5
 --- !u!1 &983572466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4705,14 +4707,14 @@ MonoBehaviour:
   dashKey: 304
   dashDuration: 3
   dashCooldown: 3
-  CD: {fileID: 2107145096}
-  FILLBAR: {fileID: 1124402911}
+  dashCooldownObject: {fileID: 2107145096}
+  dashFillbar: {fileID: 1124402911}
   PlayerHealth: 1
   Kills: 0
   scoreText: {fileID: 2119344624}
-  DS: {fileID: 430969346}
-  UIHUB: {fileID: 2137791184}
-  PausemenuUI: {fileID: 1477842688}
+  deathScene: {fileID: 430969346}
+  uiHub: {fileID: 2137791184}
+  pauseMenuUI: {fileID: 1477842688}
   playerHurtSound: {fileID: 8300000, guid: 97074840c73412944926e25ccb009482, type: 3}
   playerDeathSound: {fileID: 8300000, guid: 8367d174225021f49a7b1a9d7c549653, type: 3}
 --- !u!54 &1166540580

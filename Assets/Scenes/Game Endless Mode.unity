@@ -6721,33 +6721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - waveName: First Wave
-    noOfEnemies: 1
-    typeOfEnemies:
-    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 1
-  - waveName: Second Wave
-    noOfEnemies: 5
-    typeOfEnemies:
-    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 1
-  - waveName: Third Wave
-    noOfEnemies: 10
-    typeOfEnemies:
-    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 1
-  - waveName: Fourth Wave
-    noOfEnemies: 20
-    typeOfEnemies:
-    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 1
-  - waveName: Fifth Wave
-    noOfEnemies: 50
-    typeOfEnemies:
-    - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
-    spawnInterval: 1
-  - waveName: Sixth Wave
-    noOfEnemies: 50
+  - waveName: Endless Mode
+    noOfEnemies: 99999
     typeOfEnemies:
     - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
     spawnInterval: 1
