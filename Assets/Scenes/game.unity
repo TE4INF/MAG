@@ -8577,9 +8577,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenPosition: {x: 0, y: 0, z: 0}
   worldPosition: {x: 0, y: 0, z: 0}
-  radius: 0.25
-  offset: 0.1
-  player123: {fileID: 1763718174}
+  radius: 0.2
+  zOffset1: 1.3
+  zOffset2: 1.8
 --- !u!1 &2035871852
 GameObject:
   m_ObjectHideFlags: 0
