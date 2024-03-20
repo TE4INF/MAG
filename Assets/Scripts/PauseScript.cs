@@ -27,4 +27,17 @@ public class PauseScript : MonoBehaviour
       }
         }
     }
+
+    public void UnpauseButtonStyle()
+    {
+      if(ESC.activeInHierarchy == false)
+      {
+        ESC.SetActive(true);
+        Time.timeScale = 0;
+      }
+      else{
+        ESC.SetActive(false);
+        Time.timeScale = 1;
+      }
+    }
 }
