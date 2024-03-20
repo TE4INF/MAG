@@ -47,16 +47,16 @@ public class playerMovement : MonoBehaviour
     [SerializeField] float dashDuration;
     [SerializeField] float dashCooldown;
     private float dashCooldownTimer;
-    public GameObject CD;
-    public Image FILLBAR;
+    public GameObject dashCooldownObject;
+    public Image dashFillbar;
 
     [Header("Player attributes")]
     [SerializeField] private float PlayerHealth = 1;
     [SerializeField] public int Kills = 0;
     public TextMeshProUGUI scoreText;
-    public GameObject DS;
-    public GameObject UIHUB;
-    public GameObject PausemenuUI;
+    public GameObject deathScene;
+    public GameObject uiHub;
+    public GameObject pauseMenuUI;
     private float elapsedTime = 0f;
 
     private Vector3 flipAttack;
@@ -130,10 +130,9 @@ public class playerMovement : MonoBehaviour
         // {
         //     flip();
         // }
-
-        if (CD == true)
+        if (dashCooldownObject == true)
         {
-            FILLBAR.fillAmount -= 1f / dashDuration * Time.deltaTime;
+            dashFillbar.fillAmount -= 1f /dashDuration * Time.deltaTime;
         }
 
         if (Input.mousePosition.x < Screen.width / 2f)
@@ -185,14 +184,14 @@ public class playerMovement : MonoBehaviour
         if (dashCooldownTimer > 0) return;
         else dashCooldownTimer = dashCooldown;
 
-        FILLBAR.fillAmount = 1;
+        dashFillbar.fillAmount = 1;
         // isDashing = true;
         // canDash = false;
 
         if (moveDirection == Vector3.zero) return;
         else
         {
-            CD.SetActive(true);
+            dashCooldownObject.SetActive(true);
             animator.SetTrigger("dash");
         }
 
@@ -202,7 +201,7 @@ public class playerMovement : MonoBehaviour
 
     private void resetDash()
     {
-        CD.SetActive(false);
+        dashCooldownObject.SetActive(false);
         // canDash = true;
         // isDashing = false;
     }
@@ -219,10 +218,10 @@ public class playerMovement : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(playerDeathSound, moveDirection);
 
-            DS.SetActive(true);
-            UIHUB.SetActive(false);
+            deathScene.SetActive(true);
+            uiHub.SetActive(false);
             Time.timeScale = 0;
-            Destroy(PausemenuUI);
+            Destroy(pauseMenuUI);
             Display.main.Dead();
         }
     }
