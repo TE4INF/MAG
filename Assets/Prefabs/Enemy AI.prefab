@@ -253,7 +253,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
   timeBetweenAttacks: 1
-  timeAttackDelay: 0.7
+  timeAttackDelay: 0.5
   EnemyDamage: 0.1
   sightRange: 5
   attackRange: 0.25

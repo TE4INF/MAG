@@ -20,8 +20,8 @@ public class playerMovement : MonoBehaviour
     public Image Health;
 
     [Header("Forces")]
-    [SerializeField] float walkSpeed;
-    [SerializeField] float runSpeed;
+    [SerializeField] private float walkSpeed = 0.7f;
+    [SerializeField] private float runSpeed = 2f;
     [SerializeField] float jumpForce;
     [SerializeField] float dashForce;
 
@@ -51,7 +51,7 @@ public class playerMovement : MonoBehaviour
     public Image dashFillbar;
 
     [Header("Player attributes")]
-    [SerializeField] private float PlayerHealth = 1;
+    [SerializeField] private float PlayerHealth = 1f;
     [SerializeField] public int Kills = 0;
     public TextMeshProUGUI scoreText;
     public GameObject deathScene;
@@ -65,6 +65,13 @@ public class playerMovement : MonoBehaviour
     public AudioClip playerHurtSound;
     public AudioClip playerDeathSound;
 
+    [Header("BaseAttributes")]
+    private float baseWalk;
+    private float baseRunSpeed;
+    private float baseHealth;
+    [SerializeField] private int SpeedLevel;
+    [SerializeField] private int HealthLevel;
+
     private void Awake()
     {
         main = this;
@@ -72,6 +79,10 @@ public class playerMovement : MonoBehaviour
 
     private void Start()
     {
+        baseHealth = PlayerHealth;
+        baseRunSpeed = runSpeed;
+        baseWalk = walkSpeed;
+
         flipAttack = attackPoint.localPosition;
         animator = GetComponentInChildren<Animator>();
         scoreText.text = "Kills: " + playerMovement.main.Kills;
@@ -227,13 +238,44 @@ public class playerMovement : MonoBehaviour
         return elapsedTime;
     }
 
-    public void kill()
+    public void kill(string typeofenemy)
     {
         Kills++;
         updateScore();
+        XPManager.main.CalculateXP(typeofenemy);
     }
     public void updateScore()
     {
         scoreText.text = "Kills: " + playerMovement.main.Kills;
+    }
+    public float UpgradeSpeed()
+    {
+        SpeedLevel++;
+        walkSpeed = CalculateWalkSpeed();
+        runSpeed = CalculateRunSpeed();
+        runspeedfix();
+        return walkSpeed;
+    }
+    private float runspeedfix()
+    {
+        return runSpeed;
+    }
+    public float UpgradeHealth()
+    {
+        HealthLevel++;
+        PlayerHealth = CalculateHealth();
+        return PlayerHealth;
+    }
+    private float CalculateWalkSpeed()
+    {
+        return baseWalk * Mathf.Pow(SpeedLevel,0.6f);
+    }
+    private float CalculateRunSpeed()
+    {
+        return baseRunSpeed * Mathf.Pow(SpeedLevel, 0.6f);
+    }
+    private float CalculateHealth()
+    {
+        return Mathf.RoundToInt(baseHealth * Mathf.Pow(HealthLevel, 0.6f));
     }
 }

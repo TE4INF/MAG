@@ -49,6 +49,7 @@ public class WaveSpawner : MonoBehaviour
 		{
 			currentWaveNumber++;
 			canSpawn = true;
+			XPManager.main.CheckLevelUp();
 		}
 	}
 

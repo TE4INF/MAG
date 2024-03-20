@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class attack2 : MonoBehaviour
 {
+    public static attack2 main;
+
+
     public bool CanAttack = true;
     public bool IsAttacking = false;
     public float AttackCooldown = 1.0f;
@@ -12,13 +15,20 @@ public class attack2 : MonoBehaviour
     public float AttackRange = 0.5f;
     public LayerMask enemyLayers;
 
-    public int attackDamage = 40;
+    [SerializeField]private int attackDamage = 30;
+    private int baseDamage;
 
     Animator animator;
     public AudioClip clip; 
 
+    private void Awake()
+    {
+        main = this;
+    }
+
     private void Start()
     {
+        baseDamage = attackDamage;
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -86,5 +96,14 @@ public class attack2 : MonoBehaviour
             return;
 
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
+    }
+    
+    public void UpgradeDamage()
+    {
+        baseDamage = CalculateNewDamage();
+    }
+    private int CalculateNewDamage()
+    {
+        return baseDamage + 5;
     }
 }

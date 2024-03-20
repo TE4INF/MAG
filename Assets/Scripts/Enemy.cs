@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    string typeofenemy = "NormalEnemy";
     public SpriteRenderer sprite;
     public int maxHealth = 100;
     int currentHealth;
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("ded");
         Destroy(gameObject);
-        playerMovement.main.kill();
+        playerMovement.main.kill(typeofenemy);
     }
 
     public void FlashRed()
