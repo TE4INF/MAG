@@ -9,11 +9,13 @@ using UnityEngine.UIElements;
 
 public class tutorialText : MonoBehaviour
 {
-
+    [Header("Tutorial Text")]
     int tutorialAmount;
     int value = 0;
     public string[] tutorialTexts;
     public TextMeshProUGUI displayText;
+
+
 
 
     // Start is called before the first frame update
