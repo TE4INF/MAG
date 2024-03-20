@@ -46,7 +46,11 @@ public class tutorialText : MonoBehaviour
 
     
     public void lastTutorial()
-    {       
+    {      
+        if (value <= 0)
+        {
+            return;
+        }
         value -= 1;
         displayText.text = tutorialTexts[value];
     }
