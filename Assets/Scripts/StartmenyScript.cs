@@ -8,10 +8,15 @@ public class StartmenyScript : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("game");
+        SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1;
     }
 
+    public void Endless()
+    {
+        SceneManager.LoadScene("Game Endless Mode");
+        Time.timeScale = 1;
+    }
     public void Quit()
     {
        Debug.Log("Quit");

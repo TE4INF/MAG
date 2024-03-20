@@ -7,7 +7,7 @@ public class skipTutorial : MonoBehaviour
 {
     public void skip()
     {
-        SceneManager.LoadScene("game");
+        SceneManager.LoadScene("Game");
         Time.timeScale = 1;
     }
 }

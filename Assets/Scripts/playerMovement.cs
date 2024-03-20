@@ -89,10 +89,7 @@ public class playerMovement : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
-        //else if (!Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    animator.SetFloat("Speed", 1);
-        //}
+        
         else
         {
             animator.SetFloat("Speed", 2);
