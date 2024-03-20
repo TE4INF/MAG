@@ -8,6 +8,11 @@ public class StartmenyScript : MonoBehaviour
 {
     public void Play()
     {
+        SceneManager.LoadScene("Game");
+        Time.timeScale = 1;
+    }
+    public void Tutorial()
+    {
         SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1;
     }

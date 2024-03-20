@@ -1282,7 +1282,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 242669839}
         m_TargetAssemblyTypeName: StartmenyScript, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: Tutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2050,7 +2050,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 242669839}
         m_TargetAssemblyTypeName: StartmenyScript, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: Endless
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
