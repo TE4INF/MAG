@@ -6,15 +6,18 @@ using TMPro;
 public class XPManager : MonoBehaviour
 {
     public static XPManager main;
+    [Header("Gameobjects")]
     public GameObject UpgradeUI;
     public GameObject PlayersUI;
     public TMP_Text Currency;
-
+    public TMP_Text LevelIndicator;
+    public XPFillBar xpFillBar;
+    [Header("PublicObjects")]
     public int baseXP = 100;
     public float XPScalingFactor = 1.2f;
-
+    [Header("values not to be touched")]
     private int currentRound = 0;
-    private int currentXP = 0;
+    public int currentXP = 0;
     private int currentLevel = 1;
     
     [SerializeField] private int UpgraedCurrancy = 0;
@@ -23,6 +26,7 @@ public class XPManager : MonoBehaviour
     {
         main = this;
         Debug.Log(CalculateXPRequiredForNextLevel());
+        LevelIndicator.text = ("lvl: " + currentLevel);
     }
 
     public void CheckLevelUp()
@@ -40,7 +44,7 @@ public class XPManager : MonoBehaviour
     {
         if(typeofenemy == "NormalEnemy")
         {
-            currentXP += 50;
+            currentXP += 5;
             if (currentXP >= CalculateXPRequiredForNextLevel())
         {
             LevelUp();
@@ -64,7 +68,7 @@ public class XPManager : MonoBehaviour
         }
     }
 
-    private int CalculateXPRequiredForNextLevel()
+    public int CalculateXPRequiredForNextLevel()
     {
         return Mathf.RoundToInt(baseXP * Mathf.Pow(XPScalingFactor, currentLevel));
     }
@@ -73,8 +77,11 @@ public class XPManager : MonoBehaviour
     {
         UpgraedCurrancy++;
         currentLevel++;
+        xpFillBar.ResetFillBar();
+        LevelIndicator.text = ("lvl: " + currentLevel);
         //Animation or something
     }
+
 
     public void SpendCurrency()
     {
