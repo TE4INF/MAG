@@ -19,6 +19,8 @@ public class XPManager : MonoBehaviour
     [Header("PublicObjects")]
     public int baseXP = 100;
     public float XPScalingFactor = 1.2f;
+    [Header("Infinate Mode")]
+    public bool Infinate;
     [Header("values not to be touched")]
     public int currentXP = 0;
     private int currentLevel = 1;
@@ -39,12 +41,12 @@ public class XPManager : MonoBehaviour
             if(playerMovement.main.ShieldHealth == 1)
             {
               SetButtonActive(false);  
-              Lock.SetActive(false);
+              Lock.SetActive(true);
             }
             else
             {
                 SetButtonActive(true);
-                Lock.SetActive(true);
+                Lock.SetActive(false);
             }
             WaveUI.SetActive(false);
             Currency.text = ("Level Points: " + UpgraedCurrancy);
@@ -97,6 +99,10 @@ public class XPManager : MonoBehaviour
         currentLevel++;
         xpFillBar.ResetFillBar();
         LevelIndicator.text = ("lvl: " + currentLevel);
+        if(Infinate == true)
+        {
+            CheckLevelUp();
+        }
         //Animation or something
     }
 

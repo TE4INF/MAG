@@ -5580,7 +5580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpSlider: {fileID: 1087484430}
-  xpManager: {fileID: 0}
+  xpManager: {fileID: 1472365782}
 --- !u!114 &1087484430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6031,6 +6031,7 @@ RectTransform:
   - {fileID: 787055163}
   - {fileID: 300786828}
   - {fileID: 560844440}
+  - {fileID: 1271855434}
   m_Father: {fileID: 675829938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6345,6 +6346,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 979794390}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1271855433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271855434}
+  - component: {fileID: 1271855436}
+  - component: {fileID: 1271855435}
+  m_Layer: 5
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1271855434
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271855433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.52732, y: 0.30177, z: 0.30177}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1183915244}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 167, y: -4}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1271855435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271855433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.04429531, g: 0, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 7774a575275a34142a8d2aa43dac547f, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1271855436
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271855433}
+  m_CullTransparentMesh: 1
 --- !u!1 &1291558567
 GameObject:
   m_ObjectHideFlags: 0
@@ -7103,39 +7179,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472365781}
+  - component: {fileID: 1472365782}
   - component: {fileID: 1472365780}
-  - component: {fileID: 1472365779}
   m_Layer: 0
   m_Name: Levelmanager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1472365779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472365778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed92c516703eba848a7cc0f058f2c846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpgradeUI: {fileID: 515106895}
-  PlayersUI: {fileID: 675829934}
-  Currency: {fileID: 1319393260}
-  LevelIndicator: {fileID: 83495265}
-  xpFillBar: {fileID: 1087484429}
-  HealthButton: {fileID: 2108564826}
-  Lock: {fileID: 1863030732}
-  WaveUI: {fileID: 116623821}
-  baseXP: 10
-  XPScalingFactor: 1.2
-  currentXP: 0
-  UpgraedCurrancy: 0
+  m_IsActive: 1
 --- !u!114 &1472365780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7163,6 +7215,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472365782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472365778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059b67adbfba673478fdd15bb4ae7a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeUI: {fileID: 515106895}
+  PlayersUI: {fileID: 675829934}
+  Currency: {fileID: 1319393260}
+  LevelIndicator: {fileID: 83495265}
+  xpFillBar: {fileID: 1087484429}
+  HealthButton: {fileID: 2108564826}
+  Lock: {fileID: 1863030732}
+  WaveUI: {fileID: 116623821}
+  baseXP: 60
+  XPScalingFactor: 1.2
+  Infinate: 1
+  currentXP: 0
+  UpgraedCurrancy: 0
 --- !u!1 &1481693953
 GameObject:
   m_ObjectHideFlags: 0
@@ -8631,7 +8708,7 @@ MonoBehaviour:
   playerSprite: {fileID: 1597468947}
   moveDirection: {x: 0, y: 0, z: 0}
   Health: {fileID: 560844441}
-  Shield: {fileID: 0}
+  Shield: {fileID: 1271855435}
   walkSpeed: 0.7
   runSpeed: 2
   jumpForce: 3
