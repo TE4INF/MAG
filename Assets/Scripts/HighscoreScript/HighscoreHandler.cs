@@ -18,7 +18,6 @@ public class HighscoreHandler : MonoBehaviour
     private void Start()
     {
         LoadHighscores();
-
         inputhandler = GetComponent<InputHandler>();
     }
 

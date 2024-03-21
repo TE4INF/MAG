@@ -18,6 +18,7 @@ public class playerMovement : MonoBehaviour
     public Vector3 moveDirection;
     Rigidbody rb;
     public Image Health;
+    public Image Shield;
 
     [Header("Forces")]
     [SerializeField] private float walkSpeed = 0.7f;
@@ -52,8 +53,10 @@ public class playerMovement : MonoBehaviour
 
     [Header("Player attributes")]
     [SerializeField] private float PlayerHealth = 1f;
+    [SerializeField] public float ShieldHealth = 0f;
     [SerializeField] public int Kills = 0;
     public TextMeshProUGUI scoreText;
+    public GameObject WaveUI;
     public GameObject deathScene;
     public GameObject uiHub;
     public GameObject pauseMenuUI;
@@ -71,6 +74,9 @@ public class playerMovement : MonoBehaviour
     private float baseHealth;
     [SerializeField] private int SpeedLevel;
     [SerializeField] private int HealthLevel;
+    public float maxHealth = 1f;
+    public float maxShield = 1f;
+    private float extrahealth;
 
     private void Awake()
     {
@@ -82,10 +88,14 @@ public class playerMovement : MonoBehaviour
         baseHealth = PlayerHealth;
         baseRunSpeed = runSpeed;
         baseWalk = walkSpeed;
+        PlayerHealth = maxHealth;
 
         flipAttack = attackPoint.localPosition;
         animator = GetComponentInChildren<Animator>();
         scoreText.text = "Kills: " + playerMovement.main.Kills;
+        WaveUI.SetActive(true);
+
+        UpdateUI();
     }
 
     void Update()
@@ -186,6 +196,11 @@ public class playerMovement : MonoBehaviour
     //         //attackPoint.localPosition = new Vector3(flipAttack.x, flipAttack.y, flipAttack.z);
     //     }
     // }
+    void UpdateUI()
+    {
+        Health.fillAmount = PlayerHealth / maxHealth;
+        Shield.fillAmount = ShieldHealth / maxShield;
+    }
 
     private void Dash()
     {
@@ -216,21 +231,34 @@ public class playerMovement : MonoBehaviour
 
     public void takeDamage(float Damage)
     {
-        if (!(PlayerHealth <= 0))
+        if (ShieldHealth > 0)
         {
             AudioSource.PlayClipAtPoint(playerHurtSound, moveDirection);
-            PlayerHealth -= Damage;
-            Health.fillAmount -= Damage;
-        }
-        if (PlayerHealth <= 0)
+            ShieldHealth -= Damage;
+        
+        if (ShieldHealth < 0)
         {
-            AudioSource.PlayClipAtPoint(playerDeathSound, moveDirection);
+            PlayerHealth += ShieldHealth;
+            ShieldHealth = 0;
+        }
+        }
+        else
+        {
+            PlayerHealth-= Damage;
+        }
+
+        UpdateUI();
+
+        if(PlayerHealth <= 0)
+        {
+           AudioSource.PlayClipAtPoint(playerDeathSound, moveDirection);
 
             deathScene.SetActive(true);
             uiHub.SetActive(false);
+            WaveUI.SetActive(false);
             Time.timeScale = 0;
             Destroy(pauseMenuUI);
-            Display.main.Dead();
+            Display.main.Dead(); 
         }
     }
     public float GetElapsedTime()
@@ -262,8 +290,16 @@ public class playerMovement : MonoBehaviour
     }
     public float UpgradeHealth()
     {
-        HealthLevel++;
         PlayerHealth = CalculateHealth();
+        float totalhealth = CalculateHealth();
+        float remaningHealth = Mathf.Max(totalhealth - maxHealth, 0f);
+        PlayerHealth = Mathf.Min(totalhealth, maxHealth);
+        if(remaningHealth > 0)
+        {
+            extrahealth = remaningHealth;
+            UpgradeShield(extrahealth);
+        }
+        UpdateUI();
         return PlayerHealth;
     }
     private float CalculateWalkSpeed()
@@ -276,6 +312,11 @@ public class playerMovement : MonoBehaviour
     }
     private float CalculateHealth()
     {
-        return Mathf.RoundToInt(baseHealth * Mathf.Pow(HealthLevel, 0.6f));
+        return PlayerHealth * Mathf.Pow(HealthLevel, 0.6f);
+    }
+    private void UpgradeShield(float extrahealth)
+    {
+        ShieldHealth = Mathf.Min(extrahealth, maxShield);
+        UpdateUI();
     }
 }

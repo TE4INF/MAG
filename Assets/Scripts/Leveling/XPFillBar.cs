@@ -27,7 +27,9 @@ public class XPFillBar : MonoBehaviour
     {
         if(xpSlider != null)
         {
-            xpSlider.value = 0f;    
+            Debug.Log("reset");
+            xpSlider.value = 0f;
+            xpManager.currentXP = 0;   
         }
     }
 }

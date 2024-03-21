@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class XPManager : MonoBehaviour
+public class XPManagerInfinate : MonoBehaviour
 {
-    public static XPManager main;
+    public static XPManagerInfinate main;
     [Header("Gameobjects")]
     public GameObject UpgradeUI;
     public GameObject PlayersUI;
@@ -97,6 +97,7 @@ public class XPManager : MonoBehaviour
         currentLevel++;
         xpFillBar.ResetFillBar();
         LevelIndicator.text = ("lvl: " + currentLevel);
+        CheckLevelUp();
         //Animation or something
     }
 
