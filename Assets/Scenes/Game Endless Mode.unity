@@ -1272,9 +1272,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1196866411}
-        m_TargetAssemblyTypeName: PauseScript, Assembly-CSharp
-        m_MethodName: UnpauseButtonStyle
+      - m_Target: {fileID: 1599705417}
+        m_TargetAssemblyTypeName: StartmenyScript, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

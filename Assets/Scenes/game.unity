@@ -175,6 +175,7 @@ MonoBehaviour:
   WaveUI: {fileID: 116623821}
   baseXP: 60
   XPScalingFactor: 1.2
+  Infinate: 0
   currentXP: 0
   UpgraedCurrancy: 0
 --- !u!4 &50718854
@@ -1482,7 +1483,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 557819270}
         m_TargetAssemblyTypeName: StartmenyScript, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: Startmeny
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
