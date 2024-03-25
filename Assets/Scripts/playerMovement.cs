@@ -290,6 +290,7 @@ public class playerMovement : MonoBehaviour
     }
     public float UpgradeHealth()
     {
+        HealthLevel++;
         PlayerHealth = CalculateHealth();
         float totalhealth = CalculateHealth();
         float remaningHealth = Mathf.Max(totalhealth - maxHealth, 0f);

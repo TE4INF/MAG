@@ -7235,7 +7235,7 @@ MonoBehaviour:
   HealthButton: {fileID: 2108564826}
   Lock: {fileID: 1863030732}
   WaveUI: {fileID: 116623821}
-  baseXP: 60
+  baseXP: 10
   XPScalingFactor: 1.2
   Infinate: 1
   currentXP: 0
@@ -8733,8 +8733,8 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1599705412}
   playerHurtSound: {fileID: 8300000, guid: 97074840c73412944926e25ccb009482, type: 3}
   playerDeathSound: {fileID: 8300000, guid: 8367d174225021f49a7b1a9d7c549653, type: 3}
-  SpeedLevel: 0
-  HealthLevel: 0
+  SpeedLevel: 1
+  HealthLevel: 1
   maxHealth: 1
   maxShield: 1
 --- !u!54 &1763718178
