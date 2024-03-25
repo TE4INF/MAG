@@ -19,8 +19,6 @@ public class XPManager : MonoBehaviour
     [Header("PublicObjects")]
     public int baseXP = 100;
     public float XPScalingFactor = 1.2f;
-    [Header("Infinate Mode")]
-    public bool Infinate;
     [Header("values not to be touched")]
     public int currentXP = 0;
     private int currentLevel = 1;
@@ -99,10 +97,6 @@ public class XPManager : MonoBehaviour
         currentLevel++;
         xpFillBar.ResetFillBar();
         LevelIndicator.text = ("lvl: " + currentLevel);
-        if(Infinate == true)
-        {
-            CheckLevelUp();
-        }
         //Animation or something
     }
 
