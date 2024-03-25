@@ -111,6 +111,7 @@ public class XPManager : MonoBehaviour
     {
         UpgraedCurrancy --;
         Currency.text = ("Level Points: " + UpgraedCurrancy);
+        CheckLevelUp();
         if(UpgraedCurrancy == 0)
         {
             WaveUI.SetActive(true);
