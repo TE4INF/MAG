@@ -175,7 +175,6 @@ MonoBehaviour:
   WaveUI: {fileID: 116623821}
   baseXP: 60
   XPScalingFactor: 1.2
-  Infinate: 0
   currentXP: 0
   UpgraedCurrancy: 0
 --- !u!4 &50718854
@@ -8127,7 +8126,7 @@ MonoBehaviour:
     typeOfEnemies:
     - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}
     spawnInterval: 1
-  - waveName: Infinat Wave
+  - waveName: Infinite Wave
     noOfEnemies: 2147483647
     typeOfEnemies:
     - {fileID: 6099147548506837009, guid: d5a48d44e2914ac4eab0b1d5ad19cf84, type: 3}

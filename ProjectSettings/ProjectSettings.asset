@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: ITkompisarUF
   productName: MAG
-  defaultCursor: {fileID: 2800000, guid: 8aaba38fe9870ba4cbc48d753a1e92eb, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 2a926d1964521614a880e3f3e5ddebb3, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1

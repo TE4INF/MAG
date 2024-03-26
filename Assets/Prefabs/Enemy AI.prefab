@@ -255,7 +255,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   timeAttackDelay: 0.5
   EnemyDamage: 0.1
-  sightRange: 5
+  sightRange: 20
   attackRange: 0.25
   playerInSightRange: 0
   playerInAttackRange: 0
