@@ -68,14 +68,14 @@ public class playerMovement : MonoBehaviour
     public AudioClip playerHurtSound;
     public AudioClip playerDeathSound;
 
-    [Header("BaseAttributes")]
+    [Header("Leveling stuff")]
+    public float maxHealth = 1f;
+    public float maxShield = 1f;
     private float baseWalk;
     private float baseRunSpeed;
     private float baseHealth;
-    [SerializeField] private int SpeedLevel;
+    public int SpeedLevel;
     [SerializeField] private int HealthLevel;
-    public float maxHealth = 1f;
-    public float maxShield = 1f;
     private float extrahealth;
 
     private void Awake()

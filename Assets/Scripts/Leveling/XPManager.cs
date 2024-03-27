@@ -16,7 +16,9 @@ public class XPManager : MonoBehaviour
     public Button HealthButton;
     public GameObject Lock;
     public GameObject WaveUI;
-    [Header("PublicObjects")]
+    public TMP_Text speedLevelText;
+    public TMP_Text DamageLevelText;
+    [Header("public stuff")]
     public int baseXP = 100;
     public float XPScalingFactor = 1.2f;
     [Header("values not to be touched")]
@@ -48,6 +50,8 @@ public class XPManager : MonoBehaviour
             }
             WaveUI.SetActive(false);
             Currency.text = ("Level Points: " + UpgraedCurrancy);
+            speedLevelText.text = ("Current lvl: " + playerMovement.main.SpeedLevel);
+            DamageLevelText.text = ("Current lvl: " + attack2.main.damagelvl);
             PlayersUI.SetActive(false);
             UpgradeUI.SetActive(true);
             Time.timeScale = 0;

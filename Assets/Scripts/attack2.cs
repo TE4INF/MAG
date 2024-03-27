@@ -15,6 +15,7 @@ public class attack2 : MonoBehaviour
     public float AttackRange = 0.5f;
     public LayerMask enemyLayers;
 
+    public int damagelvl;
     [SerializeField]private int attackDamage = 30;
     private int baseDamage;
 
@@ -104,6 +105,7 @@ public class attack2 : MonoBehaviour
     }
     private int CalculateNewDamage()
     {
+        damagelvl++;
         return baseDamage + 5;
     }
 }
